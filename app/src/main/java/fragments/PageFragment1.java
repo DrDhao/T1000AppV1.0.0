@@ -14,9 +14,14 @@ import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.example.t1000appv100.MainActivity;
 import com.example.t1000appv100.R;
 
+import java.util.concurrent.atomic.AtomicReference;
+
 public class PageFragment1 extends Fragment {
+
+    private MainActivity main = (MainActivity) getActivity();
 
     @RequiresApi(api = Build.VERSION_CODES.Q)
     @Nullable
@@ -24,6 +29,9 @@ public class PageFragment1 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+
+        byte[] motorData = new byte[24];
+        AtomicReference<Byte> buttonClicked = new AtomicReference<>((byte) 0);
 
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.page_1, container, false);
         ImageButton imageButton10 = rootView.findViewById(R.id.imageButton10);
@@ -52,6 +60,8 @@ public class PageFragment1 extends Fragment {
             textView1.setVisibility(View.INVISIBLE);
         });
 
+
+        seekBar.getProgress();
 
 
         return rootView;

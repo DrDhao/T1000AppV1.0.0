@@ -14,13 +14,13 @@ import fragments.PageFragment1;
 import fragments.PageFragment2;
 import fragments.PageFragment3;
 
-
 public class MainActivity extends AppCompatActivity {
 
-    public byte[] motorData = new byte[24];
 
     private ViewPager pager;
     private PagerAdapter pagerAdapter;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,17 +37,6 @@ public class MainActivity extends AppCompatActivity {
         pagerAdapter = new SlidePagerAdapter(getSupportFragmentManager(),list);
         pager.setAdapter(pagerAdapter);
 
-
-
-
-
-
-
-
-
     }
-
-
-
-
 }
+
