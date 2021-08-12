@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.WindowManager;
 
 import java.util.ArrayList;
@@ -16,7 +17,8 @@ import fragments.PageFragment3;
 
 public class MainActivity extends AppCompatActivity {
 
-    private byte[] motorData = new byte[24];
+    private static final String TAG = "Motor Data Ausgabe";
+    private byte[] motorData= {-128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128};
 
     private ViewPager pager;
     private PagerAdapter pagerAdapter;
@@ -37,12 +39,15 @@ public class MainActivity extends AppCompatActivity {
         pager.setAdapter(pagerAdapter);
     }
 
+
     public void setMotorData(byte motorNum, byte intensity){
         motorData[motorNum] = intensity;
+        Log.i(TAG, "setMotorData: " + motorNum + " = " + intensity);
     }
 
     public byte getMotorData(byte motorNum) {
         return motorData[motorNum];
     }
+
 }
 
