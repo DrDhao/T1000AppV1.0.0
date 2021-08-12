@@ -6,4 +6,7 @@
     <string name="page_2_button">page_2_button</string>
     <string name="page_3_button">page_3_button</string>
     <string name="intensit_t">Intensität</string>
+
+    <string name="byte_min">-128</string>
+    <string name="byte_max">"127"</string>
 </resources>

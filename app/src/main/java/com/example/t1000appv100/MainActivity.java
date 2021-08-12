@@ -16,11 +16,10 @@ import fragments.PageFragment3;
 
 public class MainActivity extends AppCompatActivity {
 
+    private byte[] motorData = new byte[24];
 
     private ViewPager pager;
     private PagerAdapter pagerAdapter;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +35,14 @@ public class MainActivity extends AppCompatActivity {
         pager = findViewById(R.id.pager);
         pagerAdapter = new SlidePagerAdapter(getSupportFragmentManager(),list);
         pager.setAdapter(pagerAdapter);
+    }
 
+    public void setMotorData(byte motorNum, byte intensity){
+        motorData[motorNum] = intensity;
+    }
+
+    public byte getMotorData(byte motorNum) {
+        return motorData[motorNum];
     }
 }
 

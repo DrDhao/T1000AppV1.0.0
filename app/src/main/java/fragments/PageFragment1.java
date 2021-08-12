@@ -30,7 +30,6 @@ public class PageFragment1 extends Fragment {
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        byte[] motorData = new byte[24];
         AtomicReference<Byte> buttonClicked = new AtomicReference<>((byte) 0);
 
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.page_1, container, false);
@@ -61,8 +60,9 @@ public class PageFragment1 extends Fragment {
         });
 
 
-        seekBar.getProgress();
 
+
+        main.setMotorData();
 
         return rootView;
     }
