@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:gravity="center">
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="120dp"
+        android:layout_height="0dp"
+        android:max="100"
+        android:scaleX="5"
+        android:scaleY="5"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageButton11"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/imageButton10"
+        android:layout_width="478dp"
+        android:layout_height="800dp"
+
+        android:background="#00FFFFFF"
+        android:contentDescription="@string/page_1_button"
+        android:onClick="onClickButton10"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/sitzimg6"
+        tools:srcCompat="@drawable/sitzimg6"
+        tools:visibility="visible"
+        />
+
+    <ImageButton
+        android:id="@+id/imageButton11"
+        android:layout_width="478dp"
+        android:layout_height="800dp"
+        android:background="#00FFFFFF"
+        android:clickable="false"
+        android:contentDescription="@string/page_1_button"
+        android:onClick="onClickButton11"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.18"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/sitzimg6"
+        tools:srcCompat="@drawable/sitzimg6"
+        tools:visibility="invisible"
+        android:scaleX="1.2"
+        android:scaleY="1.2"/>
+
+
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/intensit_t"
+        android:textColor="#FFFFFF"
+        android:textSize="60dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/seekBar"
+        app:layout_constraintEnd_toEndOf="@+id/seekBar"
+        app:layout_constraintStart_toStartOf="@+id/seekBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.39999998" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
