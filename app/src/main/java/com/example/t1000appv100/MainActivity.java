@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         pager = findViewById(R.id.pager);
         pagerAdapter = new SlidePagerAdapter(getSupportFragmentManager(),list);
         pager.setAdapter(pagerAdapter);
-
     }
 
 
@@ -50,10 +49,8 @@ public class MainActivity extends AppCompatActivity {
         motorData[motorNum] = intensity;
         Log.i(TAG, "setMotorData: " + motorNum + " = " + intensity);
     }
-
     public byte getMotorData(byte motorNum) {
         return motorData[motorNum];
     }
-
 }
 

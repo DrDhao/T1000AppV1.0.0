@@ -314,21 +314,69 @@ public class PageFragment1 extends Fragment {
 
                 intensity = (byte) seekBar.getProgress();
                 main.setMotorData(motorNum, intensity);
-                if(intensity < 0){
-                    switch (motorNum){
 
-                    }
+
+
+
+
+                switch (motorNum) {
+                    case 0 : if (intensity > -128) motorButton1.setImageDrawable(getResources().getDrawable(R.drawable.motorgrossan));
+                                else motorButton1.setImageDrawable(getResources().getDrawable(R.drawable.motorgrossaus)) ;
+                    case 1 : if (intensity > -128) motorButton2.setImageDrawable(getResources().getDrawable(R.drawable.motorgrossan));
+                                else motorButton2.setImageDrawable(getResources().getDrawable(R.drawable.motorgrossaus)) ;
+                    case 2 : if (intensity > -128) motorButton3.setImageDrawable(getResources().getDrawable(R.drawable.motorgrossan));
+                                 else motorButton3.setImageDrawable(getResources().getDrawable(R.drawable.motorgrossaus)) ;
+                    case 3 : if (intensity > -128) motorButton4.setImageDrawable(getResources().getDrawable(R.drawable.motorgrossan));
+                                else motorButton4.setImageDrawable(getResources().getDrawable(R.drawable.motorgrossaus)) ;
+                    case 4 : if (intensity > -128) motorButton5.setImageDrawable(getResources().getDrawable(R.drawable.motorgrossan));
+                                else motorButton5.setImageDrawable(getResources().getDrawable(R.drawable.motorgrossaus)) ;
+                    case 5 : if (intensity > -128) motorButton6.setImageDrawable(getResources().getDrawable(R.drawable.motorgrossan));
+                                else motorButton6.setImageDrawable(getResources().getDrawable(R.drawable.motorgrossaus)) ;
+                    case 6 : if (intensity > -128) motorButton7.setImageDrawable(getResources().getDrawable(R.drawable.motorgrossan));
+                                else motorButton7.setImageDrawable(getResources().getDrawable(R.drawable.motorgrossaus)) ;
+                    case 7 : if (intensity > -128) motorButton8.setImageDrawable(getResources().getDrawable(R.drawable.motorgrossan));
+                                else motorButton8.setImageDrawable(getResources().getDrawable(R.drawable.motorgrossaus)) ;
+                    case 8 : if (intensity > -128) motorButton9.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinan));
+                                else motorButton9.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinaus)) ;
+                    case 9 : if (intensity > -128) motorButton10.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinan));
+                                else motorButton10.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinaus)) ;
+                    case 10 : if (intensity > -128) motorButton11.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinan));
+                                else motorButton11.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinaus)) ;
+                    case 11 : if (intensity > -128) motorButton12.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinan));
+                                else motorButton12.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinaus)) ;
+                    case 12 : if (intensity > -128) motorButton13.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinan));
+                                else motorButton13.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinaus)) ;
+                    case 13 : if (intensity > -128) motorButton14.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinan));
+                                else motorButton14.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinaus)) ;
+                    case 14 : if (intensity > -128) motorButton15.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinan));
+                                else motorButton15.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinaus)) ;
+                    case 15 : if (intensity > -128) motorButton16.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinan));
+                                else motorButton16.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinaus)) ;
+                    case 16 : if (intensity > -128) motorButton17.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinan));
+                                else motorButton17.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinaus)) ;
+                    case 17 : if (intensity > -128) motorButton18.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinan));
+                                else motorButton18.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinaus)) ;
+                    case 18 : if (intensity > -128) motorButton19.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinan));
+                                else motorButton19.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinaus)) ;
+                    case 19 : if (intensity > -128) motorButton20.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinan));
+                                else motorButton20.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinaus)) ;
+                    case 20 : if (intensity > -128) motorButton21.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinan));
+                                else motorButton21.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinaus)) ;
+                    case 21 : if (intensity > -128) motorButton22.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinan));
+                                else motorButton22.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinaus)) ;
+                    case 22 : if (intensity > -128) motorButton23.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinan));
+                                else motorButton23.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinaus)) ;
+                    case 23 : if (intensity > -128) motorButton24.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinan));
+                                else motorButton24.setImageDrawable(getResources().getDrawable(R.drawable.motorkleinaus)) ;
                 }
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
             }
         });
 
