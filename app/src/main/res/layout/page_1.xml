@@ -9,24 +9,28 @@
 
     <SeekBar
         android:id="@+id/seekBar"
-        android:layout_width="120dp"
-        android:layout_height="0dp"
+        style="@android:style/Widget.Material.Light.SeekBar"
+        android:layout_width="139dp"
+        android:layout_height="649dp"
         android:max="127"
         android:min="-128"
+        android:progress="-128"
+        android:progressTint="#3BB9BD"
         android:scaleX="5"
         android:scaleY="5"
-        android:progress="-128"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toEndOf="@+id/imageButton11"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.88"
+        tools:visibility="visible" />
 
     <ImageButton
         android:id="@+id/imageButton10"
-        android:layout_width="478dp"
-        android:layout_height="800dp"
+        android:layout_width="468dp"
+        android:layout_height="758dp"
 
         android:background="#00FFFFFF"
         android:contentDescription="@string/page_1_button"
@@ -36,31 +40,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/sitzimg6"
-        tools:srcCompat="@drawable/sitzimg6"
+        app:srcCompat="@drawable/seat"
+        tools:srcCompat="@drawable/seat"
         tools:visibility="invisible" />
 
     <ImageButton
         android:id="@+id/imageButton11"
-        android:layout_width="478dp"
-        android:layout_height="800dp"
+        android:layout_width="476dp"
+        android:layout_height="766dp"
         android:background="#00FFFFFF"
         android:clickable="false"
         android:contentDescription="@string/page_1_button"
         android:onClick="onClickButton11"
-        android:scaleX="1.2"
-        android:scaleY="1.2"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.18"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/sitzimg6"
-        tools:srcCompat="@drawable/sitzimg6"
+        app:srcCompat="@drawable/seat"
+        tools:srcCompat="@drawable/seat"
         tools:visibility="visible" />
-
 
 
     <TextView
@@ -75,136 +75,101 @@
         app:layout_constraintEnd_toEndOf="@+id/seekBar"
         app:layout_constraintStart_toStartOf="@+id/seekBar"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39999998" />
+        app:layout_constraintVertical_bias="0.44"
+        tools:visibility="visible" />
 
     <ImageButton
-        android:id="@+id/imageButtonMotor0"
+        android:id="@+id/motorButton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton11"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton11"
+        app:layout_constraintHorizontal_bias="0.19"
+        app:layout_constraintStart_toStartOf="@+id/imageButton11"
+        app:layout_constraintTop_toTopOf="@+id/imageButton11"
+        app:layout_constraintVertical_bias="0.79"
+        app:srcCompat="@drawable/motorgrossaus" />
+
+    <ImageButton
+        android:id="@+id/motorButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton11"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton11"
+        app:layout_constraintHorizontal_bias="0.61"
+        app:layout_constraintStart_toStartOf="@+id/imageButton11"
+        app:layout_constraintTop_toTopOf="@+id/imageButton11"
+        app:layout_constraintVertical_bias="0.83"
+        app:srcCompat="@drawable/motorgrossaus" />
+
+    <ImageButton
+        android:id="@+id/motorButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton11"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton11"
+        app:layout_constraintHorizontal_bias="0.33"
+        app:layout_constraintStart_toStartOf="@+id/imageButton11"
+        app:layout_constraintTop_toTopOf="@+id/imageButton11"
+        app:layout_constraintVertical_bias="0.7"
+        app:srcCompat="@drawable/motorgrossaus" />
+
+    <ImageButton
+        android:id="@+id/motorButton4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton11"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton11"
+        app:layout_constraintHorizontal_bias="0.69"
+        app:layout_constraintStart_toStartOf="@+id/imageButton11"
+        app:layout_constraintTop_toTopOf="@+id/imageButton11"
+        app:layout_constraintVertical_bias="0.75"
+        app:srcCompat="@drawable/motorgrossaus" />
+
+    <ImageButton
+        android:id="@+id/motorButton5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton11"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton11"
+        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintStart_toStartOf="@+id/imageButton11"
+        app:layout_constraintTop_toTopOf="@+id/imageButton11"
+        app:layout_constraintVertical_bias="0.6"
+        app:srcCompat="@drawable/motorgrossaus" />
+
+    <ImageButton
+        android:id="@+id/motorButton6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:visibility="invisible"
+
         app:layout_constraintBottom_toBottomOf="@+id/imageButton11"
         app:layout_constraintEnd_toEndOf="@+id/imageButton11"
         app:layout_constraintHorizontal_bias="0.77"
         app:layout_constraintStart_toStartOf="@+id/imageButton11"
         app:layout_constraintTop_toTopOf="@+id/imageButton11"
-        app:layout_constraintVertical_bias="0.29000002"
-        app:srcCompat="@drawable/motorpointaus"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintVertical_bias="0.65"
+        app:srcCompat="@drawable/motorgrossaus" />
 
     <ImageButton
-        android:id="@+id/imageButtonMotor1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#00FFFFFF"
-        android:visibility="invisible"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton11"
-        app:layout_constraintHorizontal_bias="0.7"
-        app:layout_constraintStart_toStartOf="@+id/imageButton11"
-        app:layout_constraintTop_toTopOf="@+id/imageButton11"
-        app:layout_constraintVertical_bias="0.37"
-        app:srcCompat="@drawable/motorpointaus"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <ImageButton
-        android:id="@+id/imageButtonMotor2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#00FFFFFF"
-        android:visibility="invisible"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton11"
-        app:layout_constraintHorizontal_bias="0.64"
-        app:layout_constraintStart_toStartOf="@+id/imageButton11"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45"
-        app:srcCompat="@drawable/motorpointaus"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <ImageButton
-        android:id="@+id/imageButtonMotor3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#00FFFFFF"
-        android:visibility="invisible"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton11"
-        app:layout_constraintHorizontal_bias="0.57"
-        app:layout_constraintStart_toStartOf="@+id/imageButton11"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.55"
-        app:srcCompat="@drawable/motorpointaus"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <ImageButton
-        android:id="@+id/imageButtonMotor4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#00FFFFFF"
-        android:visibility="invisible"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton11"
-        app:layout_constraintHorizontal_bias="0.91"
-        app:layout_constraintStart_toStartOf="@+id/imageButton11"
-        app:layout_constraintTop_toTopOf="@+id/imageButton11"
-        app:layout_constraintVertical_bias="0.32999998"
-        app:srcCompat="@drawable/motorpointaus"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <ImageButton
-        android:id="@+id/imageButtonMotor5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#00FFFFFF"
-        android:visibility="invisible"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton11"
-        app:layout_constraintHorizontal_bias="0.85"
-        app:layout_constraintStart_toStartOf="@+id/imageButton11"
-        app:layout_constraintTop_toTopOf="@+id/imageButton11"
-        app:layout_constraintVertical_bias="0.42000002"
-        app:srcCompat="@drawable/motorpointaus"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <ImageButton
-        android:id="@+id/imageButtonMotor6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#00FFFFFF"
-        android:visibility="invisible"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton11"
-        app:layout_constraintHorizontal_bias="0.79"
-        app:layout_constraintStart_toStartOf="@+id/imageButton11"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/motorpointaus"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <ImageButton
-        android:id="@+id/imageButtonMotor7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#00FFFFFF"
-        android:visibility="invisible"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton11"
-        app:layout_constraintHorizontal_bias="0.72"
-        app:layout_constraintStart_toStartOf="@+id/imageButton11"
-        app:layout_constraintTop_toTopOf="@+id/imageButton11"
-        app:layout_constraintVertical_bias="0.6"
-        app:srcCompat="@drawable/motorpointaus"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <ImageButton
-        android:id="@+id/imageButtonMotor8"
+        android:id="@+id/motorButton7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
@@ -212,59 +177,259 @@
 
         app:layout_constraintBottom_toBottomOf="@+id/imageButton11"
         app:layout_constraintEnd_toEndOf="@+id/imageButton11"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.58"
         app:layout_constraintStart_toStartOf="@+id/imageButton11"
         app:layout_constraintTop_toTopOf="@+id/imageButton11"
-        app:layout_constraintVertical_bias="0.65999997"
-        app:srcCompat="@drawable/motorpointaus"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintVertical_bias="0.45"
+        app:srcCompat="@drawable/motorgrossaus" />
 
     <ImageButton
-        android:id="@+id/imageButtonMotor9"
+        android:id="@+id/motorButton8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:visibility="invisible"
 
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton11"
         app:layout_constraintEnd_toEndOf="@+id/imageButton11"
-        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintHorizontal_bias="0.61"
         app:layout_constraintStart_toStartOf="@+id/imageButton11"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.73"
-        app:srcCompat="@drawable/motorpointaus"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintTop_toTopOf="@+id/imageButton11"
+        app:layout_constraintVertical_bias="0.35000002"
+        app:srcCompat="@drawable/motorgrossaus" />
 
     <ImageButton
-        android:id="@+id/imageButtonMotor10"
+        android:id="@+id/motorButton9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:visibility="invisible"
 
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton11"
         app:layout_constraintEnd_toEndOf="@+id/imageButton11"
-        app:layout_constraintHorizontal_bias="0.57"
         app:layout_constraintStart_toStartOf="@+id/imageButton11"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.72"
-        app:srcCompat="@drawable/motorpointaus"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintTop_toTopOf="@+id/imageButton11"
+        app:layout_constraintVertical_bias="0.6"
+        app:srcCompat="@drawable/motorkleinaus" />
 
     <ImageButton
-        android:id="@+id/imageButtonMotor11"
+        android:id="@+id/motorButton10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:visibility="invisible"
 
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton11"
         app:layout_constraintEnd_toEndOf="@+id/imageButton11"
-        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.62"
         app:layout_constraintStart_toStartOf="@+id/imageButton11"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.79"
-        app:srcCompat="@drawable/motorpointaus"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintTop_toTopOf="@+id/imageButton11"
+        app:layout_constraintVertical_bias="0.63"
+        app:srcCompat="@drawable/motorkleinaus" />
+
+    <ImageButton
+        android:id="@+id/motorButton11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton11"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton11"
+        app:layout_constraintStart_toStartOf="@+id/imageButton11"
+        app:layout_constraintTop_toTopOf="@+id/imageButton11"
+        app:layout_constraintVertical_bias="0.55"
+        app:srcCompat="@drawable/motorkleinaus" />
+
+    <ImageButton
+        android:id="@+id/motorButton12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton11"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton11"
+        app:layout_constraintHorizontal_bias="0.62"
+        app:layout_constraintStart_toStartOf="@+id/imageButton11"
+        app:layout_constraintTop_toTopOf="@+id/imageButton11"
+        app:layout_constraintVertical_bias="0.57"
+        app:srcCompat="@drawable/motorkleinaus" />
+
+    <ImageButton
+        android:id="@+id/motorButton13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton11"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton11"
+        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintStart_toStartOf="@+id/imageButton11"
+        app:layout_constraintTop_toTopOf="@+id/imageButton11"
+        app:srcCompat="@drawable/motorkleinaus" />
+
+    <ImageButton
+        android:id="@+id/motorButton14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton11"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton11"
+        app:layout_constraintHorizontal_bias="0.74"
+        app:layout_constraintStart_toStartOf="@+id/imageButton11"
+        app:layout_constraintTop_toTopOf="@+id/imageButton11"
+        app:layout_constraintVertical_bias="0.56"
+        app:srcCompat="@drawable/motorkleinaus" />
+
+    <ImageButton
+        android:id="@+id/motorButton15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton11"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton11"
+        app:layout_constraintStart_toStartOf="@+id/imageButton11"
+        app:layout_constraintTop_toTopOf="@+id/imageButton11"
+        app:layout_constraintVertical_bias="0.49"
+        app:srcCompat="@drawable/motorkleinaus" />
+
+    <ImageButton
+        android:id="@+id/motorButton16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton11"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton11"
+        app:layout_constraintHorizontal_bias="0.64"
+        app:layout_constraintStart_toStartOf="@+id/imageButton11"
+        app:layout_constraintTop_toTopOf="@+id/imageButton11"
+        app:srcCompat="@drawable/motorkleinaus" />
+
+    <ImageButton
+        android:id="@+id/motorButton17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton11"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton11"
+        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintStart_toStartOf="@+id/imageButton11"
+        app:layout_constraintTop_toTopOf="@+id/imageButton11"
+        app:layout_constraintVertical_bias="0.43"
+        app:srcCompat="@drawable/motorkleinaus" />
+
+    <ImageButton
+        android:id="@+id/motorButton18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton11"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton11"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toStartOf="@+id/imageButton11"
+        app:layout_constraintTop_toTopOf="@+id/imageButton11"
+        app:layout_constraintVertical_bias="0.47000003"
+        app:srcCompat="@drawable/motorkleinaus" />
+
+    <ImageButton
+        android:id="@+id/motorButton19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton11"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton11"
+        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintStart_toStartOf="@+id/imageButton11"
+        app:layout_constraintTop_toTopOf="@+id/imageButton11"
+        app:layout_constraintVertical_bias="0.39"
+        app:srcCompat="@drawable/motorkleinaus" />
+
+    <ImageButton
+        android:id="@+id/motorButton20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton11"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton11"
+        app:layout_constraintHorizontal_bias="0.72"
+        app:layout_constraintStart_toStartOf="@+id/imageButton11"
+        app:layout_constraintTop_toTopOf="@+id/imageButton11"
+        app:layout_constraintVertical_bias="0.39"
+        app:srcCompat="@drawable/motorkleinaus" />
+
+    <ImageButton
+        android:id="@+id/motorButton21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton11"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton11"
+        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintStart_toStartOf="@+id/imageButton11"
+        app:layout_constraintTop_toTopOf="@+id/imageButton11"
+        app:layout_constraintVertical_bias="0.32999998"
+        app:srcCompat="@drawable/motorkleinaus" />
+
+    <ImageButton
+        android:id="@+id/motorButton22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton11"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton11"
+        app:layout_constraintHorizontal_bias="0.82"
+        app:layout_constraintStart_toStartOf="@+id/imageButton11"
+        app:layout_constraintTop_toTopOf="@+id/imageButton11"
+        app:layout_constraintVertical_bias="0.37"
+        app:srcCompat="@drawable/motorkleinaus" />
+
+    <ImageButton
+        android:id="@+id/motorButton23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton11"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton11"
+        app:layout_constraintStart_toStartOf="@+id/imageButton11"
+        app:layout_constraintTop_toTopOf="@+id/imageButton11"
+        app:layout_constraintVertical_bias="0.26999998"
+        app:srcCompat="@drawable/motorkleinaus" />
+
+    <ImageButton
+        android:id="@+id/motorButton24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton11"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton11"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toStartOf="@+id/imageButton11"
+        app:layout_constraintTop_toTopOf="@+id/imageButton11"
+        app:layout_constraintVertical_bias="0.31"
+        app:srcCompat="@drawable/motorkleinaus" />
 
 </android.support.constraint.ConstraintLayout>

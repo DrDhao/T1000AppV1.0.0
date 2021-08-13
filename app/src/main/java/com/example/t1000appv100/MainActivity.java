@@ -18,7 +18,7 @@ import fragments.PageFragment3;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "Motor Data Ausgabe";
-    private byte[] motorData= {-128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128};
+    private byte[] motorData = new byte[24];
 
     private ViewPager pager;
     private PagerAdapter pagerAdapter;
@@ -28,6 +28,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        for(byte i = 0; i < motorData.length; i++){
+            motorData[i] = -128;
+        }
+
         setContentView(R.layout.activity_main);
         List<Fragment> list = new ArrayList<>();
         list.add(new PageFragment1());
@@ -37,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         pager = findViewById(R.id.pager);
         pagerAdapter = new SlidePagerAdapter(getSupportFragmentManager(),list);
         pager.setAdapter(pagerAdapter);
+
     }
 
 
