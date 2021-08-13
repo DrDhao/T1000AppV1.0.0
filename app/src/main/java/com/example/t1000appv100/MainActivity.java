@@ -7,7 +7,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.WindowManager;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         pagerAdapter = new SlidePagerAdapter(getSupportFragmentManager(),list);
         pager.setAdapter(pagerAdapter);
     }
-
 
     public void setMotorData(byte motorNum, byte intensity){
         motorData[motorNum] = intensity;

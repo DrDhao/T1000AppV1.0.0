@@ -8,12 +8,13 @@
     android:background="@drawable/background">
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/seatButtonRightFrg2"
         android:layout_width="482dp"
         android:layout_height="748dp"
         android:background="#00FFFFFF"
         android:contentDescription="@string/page_2_button"
         android:visibility="visible"
+        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,5 +22,19 @@
         app:srcCompat="@drawable/seat"
         tools:srcCompat="@drawable/seat"
         tools:visibility="visible" />
+
+    <ImageButton
+        android:id="@+id/seatButtonLeftFrg2"
+        android:layout_width="487dp"
+        android:layout_height="758dp"
+        android:background="#00FFFFFF"
+        android:visibility="invisible"
+        android:clickable="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.18"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/seat" />
 
 </android.support.constraint.ConstraintLayout>
