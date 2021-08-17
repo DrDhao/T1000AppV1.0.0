@@ -3,38 +3,71 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:gravity="center"
     android:layout_height="match_parent"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    android:gravity="center">
 
     <ImageButton
         android:id="@+id/seatButtonRightFrg2"
         android:layout_width="482dp"
         android:layout_height="748dp"
         android:background="#00FFFFFF"
+        android:clickable="true"
         android:contentDescription="@string/page_2_button"
         android:visibility="visible"
-        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/seat"
         tools:srcCompat="@drawable/seat"
-        tools:visibility="visible" />
+        tools:visibility="invisible" />
 
     <ImageButton
         android:id="@+id/seatButtonLeftFrg2"
         android:layout_width="487dp"
         android:layout_height="758dp"
         android:background="#00FFFFFF"
-        android:visibility="invisible"
         android:clickable="false"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.18"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/seat" />
+        app:srcCompat="@drawable/seat"
+        tools:ignore="SpeakableTextPresentCheck"
+        tools:visibility="visible"
+        android:contentDescription="@string/page_2_button" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/togglebutton"
+        android:textColor="#006064"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/massageList"
+        app:layout_constraintStart_toStartOf="@+id/massageList"
+        app:layout_constraintTop_toTopOf="@+id/massageList"
+        app:layout_constraintVertical_bias="0.75"
+        tools:ignore="TextContrastCheck" />
+
+    <ListView
+        android:id="@+id/massageList"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:clickable="false"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/seatButtonLeftFrg2"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+    </ListView>
+
 
 </android.support.constraint.ConstraintLayout>

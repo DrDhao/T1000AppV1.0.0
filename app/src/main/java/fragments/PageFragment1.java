@@ -64,10 +64,6 @@ public class PageFragment1 extends Fragment {
         motorButtons[22] = rootView.findViewById(R.id.motorButton23);
         motorButtons[23] = rootView.findViewById(R.id.motorButton24);
 
-
-
-
-
         //ImageButtons einblenden und aktivieren
         seatButtonRight.setOnClickListener(view -> {
             seatButtonRight.setVisibility(View.INVISIBLE);
@@ -107,7 +103,6 @@ public class PageFragment1 extends Fragment {
                 seekBar.setProgress(main.getMotorData(finalI), true);
             });
         }
-
 
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
