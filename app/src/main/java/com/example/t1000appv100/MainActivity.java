@@ -15,7 +15,8 @@ import fragments.PageFragment3;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "Motor Data Ausgabe";
-    private byte[] motorData = new byte[24];
+    private int motorCount = 24;
+    private byte[] motorData = new byte[motorCount];
 
     private ViewPager pager;
     private PagerAdapter pagerAdapter;
@@ -41,13 +42,29 @@ public class MainActivity extends AppCompatActivity {
         pager.setAdapter(pagerAdapter);
     }
 
-    public void setMotorData(byte motorNum, byte intensity){
+    public void setMotorData(byte motorNum, byte intensity){ //TODO Namen ändern? eher setMotorValue und nicht die ganze MotorData
         motorData[motorNum] = intensity;
         Log.i(TAG, "setMotorData: " + motorNum + " = " + intensity);
     }
 
-    public byte getMotorData(byte motorNum) {
+    public byte getMotorData(byte motorNum) { //TODO eher getMotorValue?
         return motorData[motorNum];
     }
+
+    private String buildMotorDataOutputString() {
+        byte[] tempMotorData = new byte[motorCount];            //TODO provisorisch! Sinn fehlt
+        for (int i = 0; i < tempMotorData.length; i++) {
+            tempMotorData[i] = (byte) i;
+        }
+
+        StringBuilder s = new StringBuilder();
+        for (int i = 0; i < tempMotorData.length-1; i++) {
+            s.append(tempMotorData[i]);
+            s.append("S");
+        }
+        s.append(tempMotorData[tempMotorData.length-1]);
+        return s.toString();
+    }
+
 }
 
