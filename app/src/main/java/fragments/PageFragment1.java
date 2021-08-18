@@ -24,7 +24,7 @@ public class PageFragment1 extends Fragment {
 
     private byte motorNum;
     //private byte intensity;
-    private ImageButton[] motorButtons = new ImageButton[24];
+    private final ImageButton[] motorButtons = new ImageButton[24];
 
     @RequiresApi(api = Build.VERSION_CODES.Q)
     @Nullable
@@ -100,7 +100,7 @@ public class PageFragment1 extends Fragment {
             byte finalI = i;
             motorButtons[i].setOnClickListener(view -> {
                 motorNum = finalI;
-                seekBar.setProgress(main.getMotorData(finalI), true);
+                seekBar.setProgress(main.getMotorValue(finalI), true);
             });
         }
 
@@ -110,7 +110,7 @@ public class PageFragment1 extends Fragment {
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
 
                 byte intensity = (byte) seekBar.getProgress();
-                main.setMotorData(motorNum, intensity);
+                main.setMotorValue(motorNum, intensity);
                 Log.i(TAG, "Intensity: " + intensity);
 
                 if(motorNum <= 7){

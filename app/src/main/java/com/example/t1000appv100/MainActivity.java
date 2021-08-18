@@ -6,6 +6,9 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.WindowManager;
+
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.List;
 import fragments.PageFragment1;
@@ -16,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "Motor Data Ausgabe";
     private int motorCount = 24;
-    private byte[] motorData = new byte[motorCount];
+    private byte[] currentMotorData = new byte[motorCount];
 
     private ViewPager pager;
     private PagerAdapter pagerAdapter;
@@ -27,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        for(byte i = 0; i < motorData.length; i++){
-            motorData[i] = -128;
+        for(byte i = 0; i < currentMotorData.length; i++){
+            currentMotorData[i] = -128;
         }
 
         setContentView(R.layout.activity_main);
@@ -42,29 +45,39 @@ public class MainActivity extends AppCompatActivity {
         pager.setAdapter(pagerAdapter);
     }
 
-    public void setMotorData(byte motorNum, byte intensity){ //TODO Namen ändern? eher setMotorValue und nicht die ganze MotorData
-        motorData[motorNum] = intensity;
+
+
+    private String buildMotorDataOutputString(byte[] newMotorData) { //builds 0 String when newMotorData equals null
+        if(newMotorData == null) {
+            newMotorData = new byte[getMotorCount()];
+            for (byte d: newMotorData) {
+                d = (byte) 0;
+            }
+        }
+            StringBuilder s = new StringBuilder();
+            for (int i = 0; i < newMotorData.length - 1; i++) {
+                s.append(newMotorData[i]);
+                s.append("S");
+            }
+            s.append(newMotorData[newMotorData.length - 1]);
+            return s.toString();
+
+
+    }
+
+    //GETTER UND SETTER
+
+    public int getMotorCount() {
+        return motorCount;
+    }
+
+    public void setMotorValue(byte motorNum, byte intensity){
+        currentMotorData[motorNum] = intensity;
         Log.i(TAG, "setMotorData: " + motorNum + " = " + intensity);
     }
 
-    public byte getMotorData(byte motorNum) { //TODO eher getMotorValue?
-        return motorData[motorNum];
+    public byte getMotorValue(byte motorNum) {
+        return currentMotorData[motorNum];
     }
-
-    private String buildMotorDataOutputString() {
-        byte[] tempMotorData = new byte[motorCount];            //TODO provisorisch! Sinn fehlt
-        for (int i = 0; i < tempMotorData.length; i++) {
-            tempMotorData[i] = (byte) i;
-        }
-
-        StringBuilder s = new StringBuilder();
-        for (int i = 0; i < tempMotorData.length-1; i++) {
-            s.append(tempMotorData[i]);
-            s.append("S");
-        }
-        s.append(tempMotorData[tempMotorData.length-1]);
-        return s.toString();
-    }
-
 }
 

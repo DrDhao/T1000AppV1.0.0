@@ -69,7 +69,7 @@ public class MassageProgramHandler extends Fragment {
                 if (stopMassage) return;
                 Log.i("Thread run", "is running, massage program: 1");
 
-                main.setMotorData((byte) 1, i);
+                main.setMotorValue((byte) 1, i);
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
@@ -86,7 +86,7 @@ public class MassageProgramHandler extends Fragment {
                 if (stopMassage) return;
                 Log.i("Thread run", "is running, massage program: 2");
 
-                main.setMotorData((byte) 2, i);
+                main.setMotorValue((byte) 2, i);
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
@@ -103,7 +103,7 @@ public class MassageProgramHandler extends Fragment {
                 if (stopMassage) return;
                 Log.i("Thread run", "is running, massage program: 3");
 
-                main.setMotorData((byte) 3, i);
+                main.setMotorValue((byte) 3, i);
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
