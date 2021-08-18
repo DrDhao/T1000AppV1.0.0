@@ -7,8 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.WindowManager;
 
-import androidx.annotation.NonNull;
-
 import java.util.ArrayList;
 import java.util.List;
 import fragments.PageFragment1;
@@ -23,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
 
     private ViewPager pager;
     private PagerAdapter pagerAdapter;
+
+    private NetworkTasker networktasker;
+    private MassageProgramHandler massageProgramHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
         pager = findViewById(R.id.pager);
         pagerAdapter = new SlidePagerAdapter(getSupportFragmentManager(),list);
         pager.setAdapter(pagerAdapter);
+
+        networktasker = new NetworkTasker(this);
+        massageProgramHandler = new MassageProgramHandler(this);
     }
 
 
@@ -78,6 +82,14 @@ public class MainActivity extends AppCompatActivity {
 
     public byte getMotorValue(byte motorNum) {
         return currentMotorData[motorNum];
+    }
+
+    //ON Stuff
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        massageProgramHandler.stop();
     }
 }
 

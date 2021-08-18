@@ -12,13 +12,13 @@ import org.json.JSONObject;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class NetworkTasks {
+public class NetworkTasker {
     private final String serverIp = "192.168.178.42";
     private final MainActivity main;
     private final ExecutorService executorService = Executors.newSingleThreadExecutor();
     private final String postUrl;
 
-    public NetworkTasks(MainActivity main) {
+    public NetworkTasker(MainActivity main) {
         this.main = main;
         postUrl = "http://" + serverIp + "/motorData";
     }
