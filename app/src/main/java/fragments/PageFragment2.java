@@ -9,10 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.ToggleButton;
 
 import com.example.t1000appv100.R;
 
@@ -32,7 +30,6 @@ public class PageFragment2 extends Fragment {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.page_2, container, false);
         ImageButton seatButtonRight = rootView.findViewById(R.id.seatButtonRightFrg2);
         ImageButton seatButtonLeft = rootView.findViewById(R.id.seatButtonLeftFrg2);
-        ToggleButton toggleButton = rootView.findViewById(R.id.toggleButton);
 
         String[] massageProgramList = {
                 "Programm 1",
@@ -69,6 +66,7 @@ public class PageFragment2 extends Fragment {
             seatButtonRight.setClickable(true);
             massageListView.setVisibility(View.INVISIBLE);
             massageListView.setClickable(false);
+            MyProgram.stopMassage();
         });
 
 
@@ -77,20 +75,9 @@ public class PageFragment2 extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Log.i("Auswahl des Massageprogramms", "Auswahl: " + position);
+                MyProgram.massageThread.start();
             }
         });
-
-        toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    MyProgram.startMassage((byte) 2, 0.5f);
-                    // The toggle is enabled
-                } else {
-                    // The toggle is disabled
-                }
-            }
-        });
-
 
 
         return rootView;

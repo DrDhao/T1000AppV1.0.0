@@ -40,19 +40,6 @@
         tools:visibility="visible"
         android:contentDescription="@string/page_2_button" />
 
-    <ToggleButton
-        android:id="@+id/toggleButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/togglebutton"
-        android:textColor="#006064"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/massageList"
-        app:layout_constraintStart_toStartOf="@+id/massageList"
-        app:layout_constraintTop_toTopOf="@+id/massageList"
-        app:layout_constraintVertical_bias="0.75"
-        tools:ignore="TextContrastCheck" />
-
     <ListView
         android:id="@+id/massageList"
         android:layout_width="0dp"
