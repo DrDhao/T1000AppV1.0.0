@@ -19,6 +19,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class PageFragment2 extends Fragment {
+
     massagePrograms MyProgram = new massagePrograms();
 
     @Nullable
@@ -72,10 +73,14 @@ public class PageFragment2 extends Fragment {
 
 
         massageListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            int prePosition = -1;
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
                 Log.i("Auswahl des Massageprogramms", "Auswahl: " + position);
-                MyProgram.massageThread.start();
+
+                MyProgram.startMassage((byte) position);
+
             }
         });
 
