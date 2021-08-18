@@ -1,11 +1,9 @@
-package fragments;
+package com.example.t1000appv100;
 
 import android.support.v4.app.Fragment;
 import android.util.Log;
 
-import com.example.t1000appv100.MainActivity;
-
-public class massagePrograms extends Fragment {
+public class MassageProgramHandler extends Fragment {
 
     MainActivity main = new MainActivity();
     byte[] motorData = new byte[24];
@@ -14,11 +12,11 @@ public class massagePrograms extends Fragment {
 
     public void startMassage(byte massageNumber) {
 
-
         switch (massageNumber){
             case 0:{
                 stopMassage = false;
                 MassageRunnable1 massageRunnable = new MassageRunnable1();
+
             }
             case 1:{
                 stopMassage = false;

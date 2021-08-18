@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
+import com.example.t1000appv100.MassageProgramHandler;
 import com.example.t1000appv100.R;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ import java.util.List;
 
 public class PageFragment2 extends Fragment {
 
-    massagePrograms MyProgram = new massagePrograms();
+    MassageProgramHandler MyProgram = new MassageProgramHandler();
 
     @Nullable
     @Override
