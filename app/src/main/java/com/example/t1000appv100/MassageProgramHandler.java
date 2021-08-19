@@ -12,7 +12,7 @@ public class MassageProgramHandler{
     private int timestepInMs = 200;
     private byte selectedProgramNum = -1; //Programs start at num 0
 
-    private ArrayList<MassageProgram> massagePrograms;
+    private ArrayList<MassageProgram> massagePrograms = new ArrayList<>();
     private final ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
 
     public MassageProgramHandler() {

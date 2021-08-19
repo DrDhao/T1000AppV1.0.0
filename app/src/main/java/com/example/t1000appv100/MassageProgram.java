@@ -102,13 +102,13 @@ class EverySingleMotorMassage extends MassageProgram{
         for (int i = 0; i < handler.getMotorCount(); i++) {
             for (int j = 0; j < 40; j++) {
                 valueTable[i][j] = bigIncrement;
-                if (i > 0 && i < handler.getMotorCount()) {
+                if (i > 0 && i < (handler.getMotorCount()-1)) {
                     valueTable[i-1][j] = littleIncrement;
                     valueTable[i+1][j] = littleIncrement;
                 } else if (i > 0) {
                     valueTable[i-1][j] = littleIncrement;
                 }
-                else if (i < handler.getMotorCount()) {
+                else if (i < handler.getMotorCount()-1) {
                     valueTable[i+1][j] = littleIncrement;
                 }
             }
