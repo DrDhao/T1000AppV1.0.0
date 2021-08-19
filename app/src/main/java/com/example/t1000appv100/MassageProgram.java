@@ -132,3 +132,17 @@ class EverySingleMotorMassage extends MassageProgram{
         columnCounter = 0;
     }
 }
+
+class testMassage extends MassageProgram{
+
+    public testMassage(MassageProgramHandler handler) {
+        super(handler);
+    }
+
+    @Override
+    public byte[] nextStep() {
+        byte[] array   = new byte[handler.getMotorCount()];
+        array[7] = 120;
+        return array;
+    }
+}
