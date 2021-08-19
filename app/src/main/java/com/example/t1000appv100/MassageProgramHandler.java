@@ -1,28 +1,42 @@
 package com.example.t1000appv100;
 
 import java.util.ArrayList;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class MassageProgramHandler{
 
     private final MainActivity main;
     private final int TIMESTEP_MIN = 100;
     private int timestepInMs = 200;
-    private boolean massageRunning = false;
+    private byte selectedProgramNum = -1; //Programs start at num 0
+
     private ArrayList<MassageProgram> massagePrograms;
+    private final ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
 
     public MassageProgramHandler(MainActivity main) {
         massagePrograms.add(new EverySingleMotorMassage(this));
+        //PROGRAMME ADDEN
         this.main = main;
     }
 
-    public void startMassage(byte massageNumber) {
+    public boolean startMassage(byte massageNumber) {
+        if(selectedProgramNum >= 0){return false;}
 
-        massageRunning = true;
+        selectedProgramNum = massageNumber;
+        Runnable next = () -> main.setMotorData(massagePrograms.get(selectedProgramNum).nextStep());
+        scheduledExecutorService.scheduleAtFixedRate(next, 0, getTimestepInMs(), TimeUnit.MILLISECONDS);
+        return true;
     }
 
     public void stop(){
-        massageRunning = false;
+        scheduledExecutorService.shutdownNow();
+        main.setMotorData(null);
+        selectedProgramNum = -1;
+        //alles auf null setzen
     }
+
 
     //GETTER UND SETTER
     public int getTimestepInMs() {
