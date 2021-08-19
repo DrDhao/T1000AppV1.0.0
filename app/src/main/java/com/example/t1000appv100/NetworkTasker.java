@@ -36,7 +36,7 @@ public class NetworkTasker {
                         DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
                 ));
 
-                RequestQueue requestQueue = Volley.newRequestQueue(main.getApplicationContext());
+                RequestQueue requestQueue = Volley.newRequestQueue(main);
                 requestQueue.add(jsonObjectRequest);
 
             } catch (JSONException e) {
