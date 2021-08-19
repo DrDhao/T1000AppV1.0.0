@@ -1,5 +1,8 @@
 package com.example.t1000appv100;
 
+import android.support.v4.app.Fragment;
+import android.util.Log;
+
 import java.util.ArrayList;
 
 public class MassageProgramHandler{
@@ -11,7 +14,7 @@ public class MassageProgramHandler{
     private ArrayList<MassageProgram> massagePrograms;
 
     public MassageProgramHandler(MainActivity main) {
-        massagePrograms.add(new EverySingleMotorMassage(this));
+        massagePrograms.add(new WaveMassage(this));
         this.main = main;
     }
 
