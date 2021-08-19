@@ -18,6 +18,8 @@ import fragments.PageFragment3;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    private static MainActivity instance;
     private static final String TAG = "Motor Data Ausgabe";
     private int motorCount = 24;
     private byte[] currentMotorData = new byte[motorCount];
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        instance = this;
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -47,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
         pagerAdapter = new SlidePagerAdapter(getSupportFragmentManager(), list);
         pager.setAdapter(pagerAdapter);
 
-        networkTasker = new NetworkTasker(this);
-        massageProgramHandler = new MassageProgramHandler(this);
+        networkTasker = new NetworkTasker();
+        massageProgramHandler = new MassageProgramHandler();
     }
 
     private void sendMotordata() {
@@ -88,5 +91,10 @@ public class MainActivity extends AppCompatActivity {
     public byte getMotorValue(byte motorNum) {
         return currentMotorData[motorNum];
     }
+
+    public static MainActivity getInstance() {
+        return instance;
+    }
+
 }
 

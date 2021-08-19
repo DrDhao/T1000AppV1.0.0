@@ -18,8 +18,8 @@ public class NetworkTasker {
     private final ExecutorService executorService = Executors.newSingleThreadExecutor();
     private final String postUrl;
 
-    public NetworkTasker(MainActivity main) {
-        this.main = main;
+    public NetworkTasker() {
+        this.main = MainActivity.getInstance();
         postUrl = "http://" + serverIp + "/motorData";
     }
 
