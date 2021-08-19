@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
+import com.example.t1000appv100.MassageProgram;
 import com.example.t1000appv100.R;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class PageFragment2 extends Fragment {
-    massagePrograms MyProgram = new massagePrograms();
+    MassageProgram MyProgram;
 
     @Nullable
     @Override
@@ -66,7 +67,7 @@ public class PageFragment2 extends Fragment {
             seatButtonRight.setClickable(true);
             massageListView.setVisibility(View.INVISIBLE);
             massageListView.setClickable(false);
-            MyProgram.stopMassage();
+
         });
 
 
@@ -76,4 +77,3 @@ public class PageFragment2 extends Fragment {
         return rootView;
     }
 }
-;
