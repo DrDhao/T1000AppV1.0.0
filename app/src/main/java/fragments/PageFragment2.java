@@ -12,7 +12,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
-import com.example.t1000appv100.MassageProgramHandler;
 import com.example.t1000appv100.R;
 
 import java.util.ArrayList;
@@ -20,8 +19,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class PageFragment2 extends Fragment {
-
-    MassageProgramHandler MyProgram = new MassageProgramHandler();
+    massagePrograms MyProgram = new massagePrograms();
 
     @Nullable
     @Override
@@ -73,17 +71,6 @@ public class PageFragment2 extends Fragment {
 
 
 
-        massageListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            int prePosition = -1;
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-
-                Log.i("Auswahl des Massageprogramms", "Auswahl: " + position);
-
-                MyProgram.startMassage((byte) position);
-
-            }
-        });
 
 
         return rootView;
