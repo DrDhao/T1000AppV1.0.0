@@ -21,6 +21,8 @@ import java.util.List;
 
 public class PageFragment2 extends Fragment {
 
+    MassageProgramHandler MyProgram = new MassageProgramHandler();
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
