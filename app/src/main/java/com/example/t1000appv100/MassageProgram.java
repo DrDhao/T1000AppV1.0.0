@@ -226,3 +226,108 @@ class testMassage extends MassageProgram {
         return array;
     }
 }
+
+class BackCircleMassage extends MassageProgram{
+
+    private final byte[][] valueTable;
+    private final int numberOfColumns = 960;
+    private int columnCounter;
+
+    public BackCircleMassage(MassageProgramHandler handler) {
+        super(handler);
+        byte bigIncrement = 127;
+        double littleFactor = 0.5;
+        double mediumFactor = 0.75;
+        byte risingLittleIncrement = (byte) (littleFactor * bigIncrement);
+        byte fallingLittleIncrement = (byte) (littleFactor * bigIncrement);
+        byte risingMediumIncrement = (byte) (mediumFactor * bigIncrement);
+        byte fallingMediumIncrement = (byte) (mediumFactor * bigIncrement);
+        boolean changeIntensity = false;
+
+        valueTable = new byte[handler.getMotorCount()][numberOfColumns];
+        int numberOfGroups = 3;
+        byte[] groupIntensity = new byte[numberOfGroups];
+        for (int j = 0; j < numberOfColumns; j++) {
+            if (j == 0) {
+                groupIntensity[0] = 100;
+            }
+            for (int i = 0; i < numberOfGroups; i++) {
+                if (changeIntensity && groupIntensity[i] == fallingLittleIncrement) {
+                    if (i==2){
+                        groupIntensity[i] = 0;
+                        groupIntensity[0] = bigIncrement;
+                    } else {
+                        groupIntensity[i] = 0;
+                        groupIntensity[i + 1] = bigIncrement;
+                    }
+                    changeIntensity = false;
+                }
+
+                if (changeIntensity && groupIntensity[i] == fallingMediumIncrement) {
+                    if (i==2){
+                        groupIntensity[i] = fallingLittleIncrement;
+                        groupIntensity[0] = risingMediumIncrement;
+                    } else {
+                        groupIntensity[i] = fallingLittleIncrement;
+                        groupIntensity[i + 1] = risingMediumIncrement;
+                    }
+                    changeIntensity = false;
+                }
+
+                if (changeIntensity && groupIntensity[i] == bigIncrement) {
+                    if (i==2){
+                        groupIntensity[i] = fallingMediumIncrement;
+                        groupIntensity[0] = risingLittleIncrement;
+                    } else {
+                        groupIntensity[i] = fallingMediumIncrement;
+                        groupIntensity[i + 1] = risingLittleIncrement;
+                    }
+                    changeIntensity = false;
+                }
+
+            }
+            valueTable[7][j] = groupIntensity[0];
+            valueTable[6][j] = groupIntensity[0];
+
+            valueTable[11][j] = groupIntensity[1];
+            valueTable[10][j] = groupIntensity[1];
+            valueTable[15][j] = groupIntensity[1];
+            valueTable[14][j] = groupIntensity[1];
+            valueTable[19][j] = groupIntensity[1];
+            valueTable[18][j] = groupIntensity[1];
+
+            valueTable[9][j] = groupIntensity[2];
+            valueTable[8][j] = groupIntensity[2];
+            valueTable[13][j] = groupIntensity[2];
+            valueTable[12][j] = groupIntensity[2];
+            valueTable[17][j] = groupIntensity[2];
+            valueTable[16][j] = groupIntensity[2];
+            valueTable[21][j] = groupIntensity[2];
+            valueTable[20][j] = groupIntensity[2];
+            valueTable[23][j] = groupIntensity[2];
+            valueTable[22][j] = groupIntensity[2];
+
+            if ((j+1) % 40 == 0){
+                changeIntensity = true;
+            }
+        }
+    }
+
+    @Override
+    public byte[] nextStep() {
+        byte[] column = new byte[super.handler.getMotorCount()];
+        for (int i = 0; i < super.handler.getMotorCount(); i++) {
+            column[i] = valueTable[i][columnCounter];
+        }
+        if (columnCounter < numberOfColumns) {
+            columnCounter++;
+        } else {
+            resetColumnCounter();
+        }
+        return column;
+    }
+
+    public void resetColumnCounter() {
+        columnCounter = 0;
+    }
+}
