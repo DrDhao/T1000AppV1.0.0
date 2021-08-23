@@ -40,6 +40,19 @@ public class PageFragment4 extends Fragment {
                     return false;
                 default: return false;
             }
+
+        });
+        rootView.findViewById(R.id.seatingSurface).setOnTouchListener((view, motionEvent) -> {
+            switch (motionEvent.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                case MotionEvent.ACTION_MOVE:
+                    Executors.newSingleThreadExecutor().submit(() -> handleNewPosition(Math.round(motionEvent.getX()), Math.round(motionEvent.getY())));
+                    return true;
+                case MotionEvent.ACTION_UP:
+                    Executors.newSingleThreadExecutor().submit(() -> handleNewPosition(Math.round(motionEvent.getX()), Math.round(motionEvent.getY())));
+                    return false;
+                default: return false;
+            }
         });
 
         return rootView;
