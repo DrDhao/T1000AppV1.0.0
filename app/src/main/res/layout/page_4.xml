@@ -7,8 +7,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/background">
 
-    <ImageButton
-        android:id="@+id/seatButtonRightFrg4"
+    <ImageView
+        android:id="@+id/seatViewFrg4"
         android:layout_width="483dp"
         android:layout_height="754dp"
         android:background="#00FFFFFF"
