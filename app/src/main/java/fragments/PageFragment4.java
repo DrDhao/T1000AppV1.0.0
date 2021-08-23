@@ -76,10 +76,14 @@ public class PageFragment4 extends Fragment {
     }
 
     private void handleNewBackrestEvent(int posX, int posY) {
+        posX = posX - backrestCoords[0];
+        posY = posY - backrestCoords[1];
         System.out.println("BackrestPosition: " + posX + "|" + posY);
     }
 
     private void handleNewCushionEvent(int posX, int posY) {
+        posX = posX - cushionCoords[0];
+        posY = posY - cushionCoords[1];
         System.out.println("KissenPosition: " + posX + "|" + posY);
     }
 

@@ -33,7 +33,7 @@ public class PageFragment1 extends Fragment {
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.page_1, container, false);
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.page_1, container, false);
         ImageButton seatButtonRight = rootView.findViewById(R.id.seatButtonRightFrg1);
         ImageButton seatButtonLeft = rootView.findViewById(R.id.seatButtonLeftFrg1);
         SeekBar seekBar = rootView.findViewById(R.id.seekBar);
@@ -73,7 +73,7 @@ public class PageFragment1 extends Fragment {
             seekBar.setVisibility(View.VISIBLE);
             seekBar.setClickable(true);
             intensityTextView.setVisibility(View.VISIBLE);
-            for (ImageButton button: motorButtons) {
+            for (ImageButton button : motorButtons) {
                 button.setVisibility(View.VISIBLE);
                 button.setClickable(true);
             }
@@ -89,7 +89,7 @@ public class PageFragment1 extends Fragment {
             seekBar.setClickable(false);
             intensityTextView.setVisibility(View.INVISIBLE);
 
-            for (ImageButton button: motorButtons) {
+            for (ImageButton button : motorButtons) {
                 button.setVisibility(View.INVISIBLE);
                 button.setClickable(false);
             }
@@ -113,14 +113,16 @@ public class PageFragment1 extends Fragment {
                 main.setMotorValue(motorNum, intensity);
                 Log.i(TAG, "Intensity: " + intensity);
 
-                if(motorNum <= 7){
-                    if(intensity > -128) motorButtons[motorNum].setImageDrawable(getResources().getDrawable(R.drawable.motorgrossan));
-                    else motorButtons[motorNum].setImageDrawable(getResources().getDrawable(R.drawable.motorgrossaus));
-                }
-
-                else{
-                    if(intensity > -128) motorButtons[motorNum].setImageDrawable(getResources().getDrawable(R.drawable.motorkleinan));
-                    else motorButtons[motorNum].setImageDrawable(getResources().getDrawable(R.drawable.motorkleinaus));
+                if (motorNum <= 7) {
+                    if (intensity > -128)
+                        motorButtons[motorNum].setImageDrawable(getResources().getDrawable(R.drawable.motorgrossan));
+                    else
+                        motorButtons[motorNum].setImageDrawable(getResources().getDrawable(R.drawable.motorgrossaus));
+                } else {
+                    if (intensity > -128)
+                        motorButtons[motorNum].setImageDrawable(getResources().getDrawable(R.drawable.motorkleinan));
+                    else
+                        motorButtons[motorNum].setImageDrawable(getResources().getDrawable(R.drawable.motorkleinaus));
                 }
             }
 
@@ -138,11 +140,11 @@ public class PageFragment1 extends Fragment {
         return rootView;
     }
 
-
-
-
-
-    
+    @Override
+    public void onPause() {
+        super.onPause();
+        ((MainActivity) getActivity()).setMotorData(null);
+    }
 }
 
 
