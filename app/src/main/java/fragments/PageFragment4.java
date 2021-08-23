@@ -59,14 +59,14 @@ public class PageFragment4 extends Fragment {
             }
         });
 
-        return rootView;
-    }
+        rootView.setOnFocusChangeListener((view, b) -> {
+            if(b) {
+                rootView.findViewById(R.id.seatBackrest).getLocationOnScreen(backrestCoords);
+                rootView.findViewById(R.id.seatingSurface).getLocationOnScreen(cushionCoords);
+            }});
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        rootView.findViewById(R.id.seatBackrest).getLocationOnScreen(backrestCoords);
-        rootView.findViewById(R.id.seatingSurface).getLocationOnScreen(cushionCoords);
+
+        return rootView;
     }
 
     @Override
