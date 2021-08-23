@@ -19,6 +19,7 @@ public class PageFragment4 extends Fragment {
     private ViewGroup rootView;
     private int[] backrestCoords = new int[2];
     private int[] cushionCoords = new int[2];
+    private boolean viewCoordsSet = false;
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -66,29 +67,37 @@ public class PageFragment4 extends Fragment {
     public void onPause() {
         super.onPause();
         ((MainActivity) getActivity()).setMotorData(null);
+        viewCoordsSet = false;
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        rootView.findViewById(R.id.seatBackrest).getLocationInWindow(backrestCoords);
-        rootView.findViewById(R.id.seatingSurface).getLocationInWindow(cushionCoords);
-
     }
 
 
 
     private void handleNewBackrestEvent(int posX, int posY) {
-        rootView.findViewById(R.id.seatBackrest).getLocationInWindow(backrestCoords);
+        if(!viewCoordsSet){
+            setViewCoords();
+        }
         posX = posX - backrestCoords[0];
         posY = posY - backrestCoords[1];
         System.out.println("BackrestPosition: " + posX + "|" + posY);
     }
 
     private void handleNewCushionEvent(int posX, int posY) {
+        if(!viewCoordsSet){
+            setViewCoords();
+        }
         posX = posX - cushionCoords[0];
         posY = posY - cushionCoords[1];
         System.out.println("KissenPosition: " + posX + "|" + posY);
     }
 
+    private void setViewCoords(){
+        rootView.findViewById(R.id.seatBackrest).getLocationInWindow(backrestCoords);
+        rootView.findViewById(R.id.seatingSurface).getLocationInWindow(cushionCoords);
+        viewCoordsSet = true;
+    }
 }
