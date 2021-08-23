@@ -100,4 +100,10 @@ public class PageFragment4 extends Fragment {
         rootView.findViewById(R.id.seatingSurface).getLocationInWindow(cushionCoords);
         viewCoordsSet = true;
     }
-}
+}/* 1. TODO Motorenpsoition als Array
+    2. von Position des Imageviews abziehen (pitagores)
+    3. davon absolutwert nehmen
+    4. dort bis wert x diese stärke wert y sälle stärke usw.
+    5. ausgeben
+    6. Massage genießen
+  */
