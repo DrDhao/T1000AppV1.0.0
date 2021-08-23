@@ -32,20 +32,14 @@ public class PageFragment4 extends Fragment {
         rootView.findViewById(R.id.seatBackrest).setOnTouchListener((view, motionEvent) -> {
             switch (motionEvent.getAction()) {
                 case MotionEvent.ACTION_DOWN:
-                    Executors.newSingleThreadExecutor().submit(() -> handleNewPosition(Math.round(motionEvent.getX()), Math.round(motionEvent.getY())));
-                    return true;
                 case MotionEvent.ACTION_MOVE:
                     Executors.newSingleThreadExecutor().submit(() -> handleNewPosition(Math.round(motionEvent.getX()), Math.round(motionEvent.getY())));
                     return true;
                 case MotionEvent.ACTION_UP:
                     Executors.newSingleThreadExecutor().submit(() -> handleNewPosition(Math.round(motionEvent.getX()), Math.round(motionEvent.getY())));
                     return false;
+                default: return false;
             }
-
-
-            if (motionEvent.getAction() == MotionEvent.ACTION_MOVE)
-                Executors.newSingleThreadExecutor().submit(() -> handleNewPosition(Math.round(motionEvent.getX()), Math.round(motionEvent.getY())));
-            return false;
         });
 
         return rootView;
