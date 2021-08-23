@@ -17,7 +17,7 @@ public class MassageProgramHandler{
 
     public MassageProgramHandler() {
         main = MainActivity.getInstance();
-        massagePrograms.add(new EverySingleMotorMassage(this));
+        massagePrograms.add(new EverySingleMotorMassage(this, 12));
         //PROGRAMME ADDEN
 
     }

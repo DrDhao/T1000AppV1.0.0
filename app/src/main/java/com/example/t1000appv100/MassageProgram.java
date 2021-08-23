@@ -16,9 +16,9 @@ class WaveMassage extends MassageProgram {
     private final int numberOfColumns = 960;
     private int columnCounter;
 
-    public WaveMassage(MassageProgramHandler handler) {
+    public WaveMassage(MassageProgramHandler handler, int SizeOfBigIncrement) {
         super(handler);
-        byte bigIncrement = 127;
+        byte bigIncrement = (byte) (10*SizeOfBigIncrement);
         double littleFactor = 0.5;
         double mediumFactor = 0.75;
         byte risingLittleIncrement = (byte) (littleFactor * bigIncrement);
@@ -134,9 +134,9 @@ class FullPowerMassage extends MassageProgram {
     private final int numberOfColumns = 1920;
     private int columnCounter;
 
-    public FullPowerMassage(MassageProgramHandler handler) {
+    public FullPowerMassage(MassageProgramHandler handler, int SizeOfBigIncrement) {
         super(handler);
-        byte bigIncrement = 127;
+        byte bigIncrement = (byte) (10*SizeOfBigIncrement);
 
         valueTable = new byte[handler.getMotorCount()][numberOfColumns];
         for (int i = 0; i < handler.getMotorCount(); i++) {
@@ -172,9 +172,9 @@ class EverySingleMotorMassage extends MassageProgram {
     private final int numberOfColumns = 960;
     private int columnCounter;
 
-    public EverySingleMotorMassage(MassageProgramHandler handler) {
+    public EverySingleMotorMassage(MassageProgramHandler handler, int SizeOfBigIncrement) {
         super(handler);
-        byte bigIncrement = 127;
+        byte bigIncrement = (byte) (10*SizeOfBigIncrement);
         double littleFactor = 0.25;
         byte littleIncrement = (byte) (littleFactor * bigIncrement);
 
@@ -233,9 +233,9 @@ class BackCircleMassage extends MassageProgram{
     private final int numberOfColumns = 960;
     private int columnCounter;
 
-    public BackCircleMassage(MassageProgramHandler handler) {
+    public BackCircleMassage(MassageProgramHandler handler, int SizeOfBigIncrement) {
         super(handler);
-        byte bigIncrement = 127;
+        byte bigIncrement = (byte) (10*SizeOfBigIncrement);
         double littleFactor = 0.5;
         double mediumFactor = 0.75;
         byte risingLittleIncrement = (byte) (littleFactor * bigIncrement);
