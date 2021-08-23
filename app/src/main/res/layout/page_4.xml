@@ -8,18 +8,34 @@
     android:background="@drawable/background">
 
     <ImageView
-        android:id="@+id/seatViewFrg4"
+        android:id="@+id/seatBackrest"
         android:layout_width="483dp"
         android:layout_height="754dp"
         android:background="#00FFFFFF"
-        android:contentDescription="@string/page_3_button"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.814"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/seat"
-        tools:srcCompat="@drawable/seat"
+        app:srcCompat="@drawable/sitzlehne"
+        tools:srcCompat="@drawable/sitzlehne"
         tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/seatingSurface"
+        android:layout_width="526dp"
+        android:layout_height="494dp"
+        android:background="#00FFFFFF"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/sitzkissen"
+        tools:srcCompat="@drawable/sitzkissen"
+        tools:visibility="visible" />
+
 
 </android.support.constraint.ConstraintLayout>
