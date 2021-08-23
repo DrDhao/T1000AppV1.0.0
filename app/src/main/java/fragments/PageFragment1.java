@@ -131,12 +131,14 @@ public class PageFragment1 extends Fragment {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
+
         });
 
         main = (MainActivity) getActivity();
-
         return rootView;
     }
+
+
 
 
 

@@ -15,6 +15,7 @@ import java.util.List;
 import fragments.PageFragment1;
 import fragments.PageFragment2;
 import fragments.PageFragment3;
+import fragments.PageFragment4;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(new PageFragment1());
         list.add(new PageFragment2());
         list.add(new PageFragment3());
+        list.add(new PageFragment4());
 
         pager = findViewById(R.id.pager);
         pagerAdapter = new SlidePagerAdapter(getSupportFragmentManager(), list);

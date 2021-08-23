@@ -11,4 +11,6 @@
     <string name="byte_max">"127"</string>
     <string name="motorpointein">motorpoinein:drawable/</string>
     <string name="togglebutton">ToggleButton</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

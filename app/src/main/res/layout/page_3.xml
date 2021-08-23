@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:gravity="center"
     android:layout_height="match_parent"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    android:gravity="center">
 
     <ImageButton
-        android:id="@+id/seatButtonRightFrg2"
+        android:id="@+id/seatButtonRightFrg3"
         android:layout_width="483dp"
         android:layout_height="754dp"
         android:background="#00FFFFFF"
@@ -20,6 +20,106 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/seat"
         tools:srcCompat="@drawable/seat"
+        tools:visibility="invisible" />
+
+    <ImageButton
+        android:id="@+id/seatButtonLeftFrg3"
+        android:layout_width="487dp"
+        android:layout_height="758dp"
+        android:background="#00FFFFFF"
+        android:clickable="false"
+        android:contentDescription="@string/page_3_button"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.18"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/seat"
+        tools:ignore="SpeakableTextPresentCheck"
         tools:visibility="visible" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/motorgrossaus"
+        tools:layout_editor_absoluteX="332dp"
+        tools:layout_editor_absoluteY="211dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/motorgrossaus" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/motorgrossaus"
+        tools:layout_editor_absoluteX="317dp"
+        tools:layout_editor_absoluteY="305dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/motorgrossaus"
+        tools:layout_editor_absoluteX="461dp"
+        tools:layout_editor_absoluteY="321dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/motorgrossaus"
+        tools:layout_editor_absoluteX="306dp"
+        tools:layout_editor_absoluteY="401dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/motorgrossaus"
+        tools:layout_editor_absoluteX="449dp"
+        tools:layout_editor_absoluteY="417dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/motorgrossaus"
+        tools:layout_editor_absoluteX="294dp"
+        tools:layout_editor_absoluteY="485dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/motorgrossaus"
+        tools:layout_editor_absoluteX="442dp"
+        tools:layout_editor_absoluteY="528dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/motorgrossaus"
+        tools:layout_editor_absoluteX="218dp"
+        tools:layout_editor_absoluteY="566dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/motorgrossaus"
+        tools:layout_editor_absoluteX="380dp"
+        tools:layout_editor_absoluteY="608dp" />
 
 </android.support.constraint.ConstraintLayout>

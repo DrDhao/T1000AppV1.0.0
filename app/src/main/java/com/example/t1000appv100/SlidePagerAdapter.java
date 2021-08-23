@@ -15,7 +15,6 @@ public class SlidePagerAdapter extends FragmentStatePagerAdapter {
         this.fragmentList = fragmentList;
     }
 
-
     @Override
     public Fragment getItem(int position) {
         return fragmentList.get(position);
@@ -25,4 +24,8 @@ public class SlidePagerAdapter extends FragmentStatePagerAdapter {
     public int getCount() {
         return fragmentList.size();
     }
+
+
+
+
 }
