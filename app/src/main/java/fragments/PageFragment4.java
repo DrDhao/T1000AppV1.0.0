@@ -30,6 +30,7 @@ public class PageFragment4 extends Fragment {
                         , false);
 
         rootView.findViewById(R.id.seatBackrest).setOnTouchListener((view, motionEvent) -> {
+            if(motionEvent.getAction() == MotionEvent.ACTION_MOVE)
             Executors.newSingleThreadExecutor().submit(()-> handleNewPosition(Math.round(motionEvent.getX()),Math.round(motionEvent.getY())));
             return false;
         });
