@@ -25,13 +25,26 @@ public class PageFragment4 extends Fragment {
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        ViewGroup rootView = (ViewGroup)inflater
+        ViewGroup rootView = (ViewGroup) inflater
                 .inflate(R.layout.page_4, container
                         , false);
 
         rootView.findViewById(R.id.seatBackrest).setOnTouchListener((view, motionEvent) -> {
-            if(motionEvent.getAction() == MotionEvent.ACTION_MOVE)
-            Executors.newSingleThreadExecutor().submit(()-> handleNewPosition(Math.round(motionEvent.getX()),Math.round(motionEvent.getY())));
+            switch (motionEvent.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    Executors.newSingleThreadExecutor().submit(() -> handleNewPosition(Math.round(motionEvent.getX()), Math.round(motionEvent.getY())));
+                    return true;
+                case MotionEvent.ACTION_MOVE:
+                    Executors.newSingleThreadExecutor().submit(() -> handleNewPosition(Math.round(motionEvent.getX()), Math.round(motionEvent.getY())));
+                    return true;
+                case MotionEvent.ACTION_UP:
+                    Executors.newSingleThreadExecutor().submit(() -> handleNewPosition(Math.round(motionEvent.getX()), Math.round(motionEvent.getY())));
+                    return false;
+            }
+
+
+            if (motionEvent.getAction() == MotionEvent.ACTION_MOVE)
+                Executors.newSingleThreadExecutor().submit(() -> handleNewPosition(Math.round(motionEvent.getX()), Math.round(motionEvent.getY())));
             return false;
         });
 
@@ -39,7 +52,7 @@ public class PageFragment4 extends Fragment {
     }
 
     private void handleNewPosition(int posX, int posY) {
-        System.out.println("Position: "+ posX + "|" + posY);
+        System.out.println("Position: " + posX + "|" + posY);
     }
 
 
