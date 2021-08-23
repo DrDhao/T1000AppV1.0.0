@@ -5,10 +5,14 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.t1000appv100.R;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class PageFragment4 extends Fragment {
 
@@ -22,8 +26,19 @@ public class PageFragment4 extends Fragment {
                 .inflate(R.layout.page_4, container
                         , false);
 
+        rootView.setOnTouchListener((view, motionEvent) -> {
+            Executors.newSingleThreadExecutor().submit(()->{
+                handleNewPosition(Math.round(motionEvent.getX()),Math.round(motionEvent.getY()));
+            });
+            return false;
+        });
 
         return rootView;
     }
+
+    private void handleNewPosition(int posX, int posY) {
+        System.out.println("Position: "+ posX + "|" + posY);
+    }
+
 
 }
