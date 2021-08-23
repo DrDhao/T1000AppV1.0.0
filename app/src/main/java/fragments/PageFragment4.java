@@ -59,13 +59,6 @@ public class PageFragment4 extends Fragment {
             }
         });
 
-        rootView.setOnFocusChangeListener((view, b) -> {
-            if(b) {
-                rootView.findViewById(R.id.seatBackrest).getLocationOnScreen(backrestCoords);
-                rootView.findViewById(R.id.seatingSurface).getLocationOnScreen(cushionCoords);
-            }});
-
-
         return rootView;
     }
 
@@ -75,7 +68,18 @@ public class PageFragment4 extends Fragment {
         ((MainActivity) getActivity()).setMotorData(null);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        rootView.findViewById(R.id.seatBackrest).getLocationInWindow(backrestCoords);
+        rootView.findViewById(R.id.seatingSurface).getLocationInWindow(cushionCoords);
+
+    }
+
+
+
     private void handleNewBackrestEvent(int posX, int posY) {
+        rootView.findViewById(R.id.seatBackrest).getLocationInWindow(backrestCoords);
         posX = posX - backrestCoords[0];
         posY = posY - backrestCoords[1];
         System.out.println("BackrestPosition: " + posX + "|" + posY);
