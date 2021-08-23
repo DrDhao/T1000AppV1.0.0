@@ -1,5 +1,6 @@
 package fragments;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.t1000appv100.R;
 
@@ -16,6 +18,7 @@ import java.util.concurrent.Executors;
 
 public class PageFragment4 extends Fragment {
 
+    @SuppressLint("ClickableViewAccessibility")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -26,10 +29,8 @@ public class PageFragment4 extends Fragment {
                 .inflate(R.layout.page_4, container
                         , false);
 
-        rootView.setOnTouchListener((view, motionEvent) -> {
-            Executors.newSingleThreadExecutor().submit(()->{
-                handleNewPosition(Math.round(motionEvent.getX()),Math.round(motionEvent.getY()));
-            });
+        rootView.findViewById(R.id.seatViewFrg4).setOnTouchListener((view, motionEvent) -> {
+            Executors.newSingleThreadExecutor().submit(()-> handleNewPosition(Math.round(motionEvent.getX()),Math.round(motionEvent.getY())));
             return false;
         });
 
