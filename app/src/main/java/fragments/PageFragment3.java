@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.t1000appv100.MainActivity;
 import com.example.t1000appv100.R;
 
 public class PageFragment3 extends Fragment {
@@ -24,6 +25,12 @@ public class PageFragment3 extends Fragment {
 
 
         return rootView;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        ((MainActivity) getActivity()).setMotorData(null);
     }
 
 }
