@@ -63,7 +63,6 @@ public class PageFragment4 extends Fragment {
         viewCoordsSet = false;
     }
 
-
     private void handleNewSeatEvent(int posX, int posY) {
         if(!viewCoordsSet){
             setViewCoords();
