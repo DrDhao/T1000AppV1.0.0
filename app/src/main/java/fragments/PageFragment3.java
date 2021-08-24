@@ -19,9 +19,8 @@ public class PageFragment3 extends Fragment {
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        ViewGroup rootView = (ViewGroup)inflater
-                .inflate(R.layout.page_3, container
-                        , false);
+        ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.page_3, container, false);
+
 
 
         return rootView;
