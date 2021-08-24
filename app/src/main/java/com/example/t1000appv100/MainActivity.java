@@ -37,9 +37,7 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        for (byte i = 0; i < currentMotorData.length; i++) {
-            currentMotorData[i] = -128;
-        }
+        resetMotorData();
 
         setContentView(R.layout.activity_main);
         List<Fragment> list = new ArrayList<>();
@@ -61,9 +59,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String buildMotorDataOutputString(byte[] newMotorData) { //builds 0 String when newMotorData equals null
-        if (newMotorData == null) {
-            newMotorData = new byte[getMotorCount()];
-        }
         StringBuilder s = new StringBuilder();
         for (int i = 0; i < newMotorData.length - 1; i++) {
             s.append(newMotorData[i]);
@@ -79,9 +74,19 @@ public class MainActivity extends AppCompatActivity {
         return motorCount;
     }
 
-    public void setMotorData(byte[] array) { //reset to 0 with array = null
-        currentMotorData = array;
+    public void setMotorData(byte[] array) { //reset to -128 with array = null
+        if(array == null){
+            resetMotorData();
+        }else{
+            currentMotorData = array;
+        }
         sendMotordata();
+    }
+
+    private void resetMotorData() {
+        for (byte i = 0; i < currentMotorData.length; i++) {
+        currentMotorData[i] = -128;
+        }
     }
 
     public void setMotorValue(byte motorNum, byte intensity) {
