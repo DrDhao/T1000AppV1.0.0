@@ -18,7 +18,11 @@ public class MassageProgramHandler{
     public MassageProgramHandler() {
         main = MainActivity.getInstance();
         massagePrograms.add(new EverySingleMotorMassage(this, 256));
-        //PROGRAMME ADDEN
+        massagePrograms.add(new FullPowerMassage(this, 256));
+        massagePrograms.add(new testMassage(this));
+
+        massagePrograms.add(new WaveMassage(this, 256));
+        massagePrograms.add(new BackCircleMassage(this, 256));
     }
 
     public boolean startMassage(byte massageNumber) {
