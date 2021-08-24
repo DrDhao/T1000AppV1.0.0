@@ -11,11 +11,12 @@ import org.json.JSONObject;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
 public class NetworkTasker {
     private final String serverIp = "192.168.178.42";
     private final MainActivity main;
-    private final ExecutorService executorService = Executors.newSingleThreadExecutor();
+    private final ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(100);
     private final String postUrl;
 
     public NetworkTasker() {
@@ -25,7 +26,7 @@ public class NetworkTasker {
 
 
     public void sendPostRequest(String message) {
-        executorService.submit(() -> {
+        executor.execute(()->{
             try {
                 JSONObject postData = new JSONObject();
                 postData.put("motorData", message);
