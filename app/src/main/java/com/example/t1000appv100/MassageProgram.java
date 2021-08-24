@@ -331,4 +331,3 @@ class BackCircleMassage extends MassageProgram{
         columnCounter = 0;
     }
 }
-
