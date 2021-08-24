@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 public class MassageProgramHandler{
 
+    private static MassageProgramHandler instance;
     private MainActivity main;
     private final int TIMESTEP_MIN = 100;
     private int timestepInMs = 200;
@@ -16,6 +17,7 @@ public class MassageProgramHandler{
     private final ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
 
     public MassageProgramHandler() {
+        instance = this;
         main = MainActivity.getInstance();
         massagePrograms.add(new EverySingleMotorMassage(this, 256));
         massagePrograms.add(new FullPowerMassage(this, 256));
@@ -25,10 +27,14 @@ public class MassageProgramHandler{
         massagePrograms.add(new BackCircleMassage(this, 256));
     }
 
-    public boolean startMassage(byte massageNumber) {
+    public static MassageProgramHandler getInstance() {
+        return instance;
+    }
+
+    public boolean startMassage(int massageNumber) {
         if(selectedProgramNum >= 0){return false;}
 
-        selectedProgramNum = massageNumber;
+        selectedProgramNum = (byte) massageNumber;
         Runnable next = () -> main.setMotorData(massagePrograms.get(selectedProgramNum).nextStep());
         scheduledExecutorService.scheduleAtFixedRate(next, 0, getTimestepInMs(), TimeUnit.MILLISECONDS);
         return true;

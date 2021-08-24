@@ -9,12 +9,11 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 
 public class NetworkTasker {
-    private final String serverIp = "192.168.178.42:8080";
+    private final String serverIp = "192.168.4.1:8080";
     private final MainActivity main;
     private final ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(100);
     private final String postUrl;

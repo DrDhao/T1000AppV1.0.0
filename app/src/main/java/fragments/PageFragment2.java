@@ -14,6 +14,7 @@ import android.widget.ListView;
 
 import com.example.t1000appv100.MainActivity;
 import com.example.t1000appv100.MassageProgram;
+import com.example.t1000appv100.MassageProgramHandler;
 import com.example.t1000appv100.R;
 
 import java.util.ArrayList;
@@ -32,9 +33,11 @@ public class PageFragment2 extends Fragment {
         ImageButton seatButtonLeft = rootView.findViewById(R.id.seatButtonLeftFrg2);
 
         String[] massageProgramList = {
-                "Programm 1",
-                "Programm 2",
-                "Programm 3"
+                "EverySingleMotorMassage",
+                "FullPowerMassage",
+                "testMassage",
+                "WaveMassage",
+                "BackCircleMassage"
         };
 
         List<String> massageList = new ArrayList<>(Arrays.asList(massageProgramList));
@@ -68,8 +71,11 @@ public class PageFragment2 extends Fragment {
             massageListView.setClickable(false);
 
         });
+
+        massageListView.setOnItemClickListener((adapterView, view, position, l) -> MassageProgramHandler.getInstance().startMassage(position));
+
         return rootView;
-    }
+   }
 
     @Override
     public void onPause() {
