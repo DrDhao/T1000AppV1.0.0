@@ -85,71 +85,63 @@ public class PageFragment4 extends Fragment {
     }
 
     private void setMotorArray() {
-        motorPositionSeat[0][0] = 2200;
-        motorPositionSeat[1][0] = 2200;
-        motorPositionSeat[2][0] = 1700;
-        motorPositionSeat[3][0] = 1700;
-        motorPositionSeat[4][0] = 1400;
-        motorPositionSeat[5][0] = 1400;
-        motorPositionSeat[6][0] = 900;
-        motorPositionSeat[7][0] = 800;
-        motorPositionSeat[8][0] = 1280;
-        motorPositionSeat[9][0] = 1280;
-        motorPositionSeat[10][0] = 1160;
-        motorPositionSeat[11][0] = 1160;
-        motorPositionSeat[12][0] = 1160;
-        motorPositionSeat[13][0] = 1160;
-        motorPositionSeat[14][0] = 1040;
-        motorPositionSeat[15][0] = 1040;
-        motorPositionSeat[16][0] = 920;
-        motorPositionSeat[17][0] = 920;
-        motorPositionSeat[18][0] = 820;
-        motorPositionSeat[19][0] = 820;
-        motorPositionSeat[20][0] = 700;
-        motorPositionSeat[21][0] = 700;
-        motorPositionSeat[22][0] = 580;
-        motorPositionSeat[23][0] = 580;
+        motorPositionSeat[0][0] = 1630;
+        motorPositionSeat[1][0] = 1630;
+        motorPositionSeat[2][0] = 1250;
+        motorPositionSeat[3][0] = 1250;
+        motorPositionSeat[4][0] = 1050;
+        motorPositionSeat[5][0] = 1050;
+        motorPositionSeat[6][0] = 750;
+        motorPositionSeat[7][0] = 600;
 
-        motorPositionSeat[0][1] = 800;
+        motorPositionSeat[8][0] = 930;
+        motorPositionSeat[9][0] = 930;
+        motorPositionSeat[10][0] = 870;
+        motorPositionSeat[11][0] = 870;
+        motorPositionSeat[12][0] = 870;
+        motorPositionSeat[13][0] = 870;
+        motorPositionSeat[14][0] = 800;
+        motorPositionSeat[15][0] = 800;
+        motorPositionSeat[16][0] = 750;
+        motorPositionSeat[17][0] = 750;
+        motorPositionSeat[18][0] = 670;
+        motorPositionSeat[19][0] = 670;
+        motorPositionSeat[20][0] = 600;
+        motorPositionSeat[21][0] = 600;
+        motorPositionSeat[22][0] = 500;
+        motorPositionSeat[23][0] = 500;
+
+        motorPositionSeat[0][1] = 600;
         motorPositionSeat[1][1] = 200;
-        motorPositionSeat[2][1] = 800;
+        motorPositionSeat[2][1] = 600;
         motorPositionSeat[3][1] = 200;
-        motorPositionSeat[4][1] = 800;
+        motorPositionSeat[4][1] = 600;
         motorPositionSeat[5][1] = 200;
 
-        motorPositionSeat[6][1] = 500;
-        motorPositionSeat[7][1] = 500;
+        motorPositionSeat[6][1] = 400;
+        motorPositionSeat[7][1] = 400;
 
-        motorPositionSeat[8][1] = 700;
-        motorPositionSeat[9][1] = 300;
-        motorPositionSeat[10][1] = 600;
-        motorPositionSeat[11][1] = 400;
-        motorPositionSeat[12][1] = 800;
+        motorPositionSeat[8][1] = 530;
+        motorPositionSeat[9][1] = 270;
+        motorPositionSeat[10][1] = 470;
+        motorPositionSeat[11][1] = 330;
+        motorPositionSeat[12][1] = 600;
         motorPositionSeat[13][1] = 200;
-        motorPositionSeat[14][1] = 650;
-        motorPositionSeat[15][1] = 350;
-        motorPositionSeat[16][1] = 800;
+        motorPositionSeat[14][1] = 500;
+        motorPositionSeat[15][1] = 300;
+        motorPositionSeat[16][1] = 600;
         motorPositionSeat[17][1] = 200;
-        motorPositionSeat[18][1] = 700;
-        motorPositionSeat[19][1] = 300;
-        motorPositionSeat[20][1] = 800;
+        motorPositionSeat[18][1] = 530;
+        motorPositionSeat[19][1] = 270;
+        motorPositionSeat[20][1] = 600;
         motorPositionSeat[21][1] = 200;
-        motorPositionSeat[22][1] = 800;
-        motorPositionSeat[23][1] = 200;
+        motorPositionSeat[22][1] = 630;
+        motorPositionSeat[23][1] = 170;
     }
 
-    private void getDistance() {
-        
-    }
 
     private void setViewCoords(){
         rootView.findViewById(R.id.seatFrg4).getLocationInWindow(seatCoords);
         viewCoordsSet = true;
     }
-}/* 
-    2. TODO von Position des Imageviews abziehen (pitagores)
-    3. davon absolutwert nehmen
-    4. dort bis wert x diese stärke wert y sälle stärke usw.
-    5. ausgeben
-    6. Massage genießen
-  */
+}
