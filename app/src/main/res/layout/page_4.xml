@@ -10,15 +10,15 @@
     <ImageView
         android:id="@+id/seatFrg4"
         android:layout_width="1200dp"
-        android:layout_height="600dp"
+        android:layout_height="500dp"
         android:background="#00FFFFFF"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/SitzI"
-        tools:srcCompat="@drawable/SitzI"
+        app:srcCompat="@drawable/sitzfrg4"
+        tools:srcCompat="@drawable/sitzfrg4"
         tools:visibility="visible" />
 
 

@@ -113,7 +113,7 @@ class WaveMassage extends MassageProgram {
     public byte[] nextStep() {
         byte[] column = new byte[super.handler.getMotorCount()];
         for (int i = 0; i < super.handler.getMotorCount(); i++) {
-            column[i] = valueTable[i][columnCounter];
+            column[i] = (byte) ((valueTable[i][columnCounter])-128);
         }
         if (columnCounter < numberOfColumns) {
             columnCounter++;
@@ -198,7 +198,7 @@ class EverySingleMotorMassage extends MassageProgram {
     public byte[] nextStep() {
         byte[] column = new byte[super.handler.getMotorCount()];
         for (int i = 0; i < super.handler.getMotorCount(); i++) {
-            column[i] = valueTable[i][columnCounter];
+            column[i] = (byte) (valueTable[i][columnCounter] - 128);
         }
         if (columnCounter < numberOfColumns) {
             columnCounter++;
@@ -317,7 +317,7 @@ class BackCircleMassage extends MassageProgram{
     public byte[] nextStep() {
         byte[] column = new byte[super.handler.getMotorCount()];
         for (int i = 0; i < super.handler.getMotorCount(); i++) {
-            column[i] = valueTable[i][columnCounter];
+            column[i] = (byte) ((valueTable[i][columnCounter])-128);
         }
         if (columnCounter < numberOfColumns) {
             columnCounter++;
