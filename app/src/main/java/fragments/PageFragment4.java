@@ -19,9 +19,10 @@ public class PageFragment4 extends Fragment {
     private ViewGroup rootView;
     private final int[] seatCoords = new int[2];
     private boolean viewCoordsSet = false;
-    private final int[][] motorPositionSeat = new int[20][2];
-    private final MainActivity main= ((MainActivity) getActivity());
+    private final int[][] motorPositionSeat = new int[24][2];
+    private MainActivity main;
     private final double intensityForSwipe = 12;
+
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -34,6 +35,8 @@ public class PageFragment4 extends Fragment {
         rootView = (ViewGroup) inflater
                 .inflate(R.layout.page_4, container
                         , false);
+
+        main = ((MainActivity) getActivity());
         
         rootView.findViewById(R.id.seatFrg4).setOnTouchListener((view, motionEvent) -> {
             switch (motionEvent.getAction()) {
