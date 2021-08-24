@@ -13,7 +13,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class NetworkTasker {
-    private final String serverIp = "192.168.178.42";
+    private final String serverIp = "192.168.4.1:8080";
     private final MainActivity main;
     private final ExecutorService executorService = Executors.newSingleThreadExecutor();
     private final String postUrl;
