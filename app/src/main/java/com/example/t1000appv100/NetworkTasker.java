@@ -23,7 +23,6 @@ public class NetworkTasker {
         postUrl = "http://" + serverIp + "/motorData";
     }
 
-
     public void sendPostRequest(String message) {
         executor.execute(()->{
             try {
