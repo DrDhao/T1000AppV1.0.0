@@ -170,7 +170,7 @@ class EverySingleMotorMassage extends MassageProgram {
 
     private final int[][] valueTable;
     private final int frequency = 40; // Jeder Motor eine Sek ansteuern
-    private final int numberOfTimeSteps = frequency * handler.getMotorCount();
+    private final int numberOfTimeSteps = 2*frequency * handler.getMotorCount();
     private int timeStepCounter;
 
 
@@ -187,8 +187,12 @@ class EverySingleMotorMassage extends MassageProgram {
         for (int j = 0; j < numberOfTimeSteps; j++) {
             for (int i = 0; i < handler.getMotorCount(); i++) {
 
+                if(j==0){
+                    groupIntensity[0] = bigIntensity;
+                }
+
                 if (nextMotor && groupIntensity[i] == fallingLittleIntensity) {
-                    if (i == handler.getMotorCount()){
+                    if (i == handler.getMotorCount()-1){
                         groupIntensity[i] = 0;
                         groupIntensity[0] = bigIntensity;
                     } else {
@@ -199,7 +203,7 @@ class EverySingleMotorMassage extends MassageProgram {
                 }
 
                 if (nextMotor && groupIntensity[i] == bigIntensity) {
-                    if (i == handler.getMotorCount()){
+                    if (i == handler.getMotorCount()-1){
                         groupIntensity[i] = fallingLittleIntensity;
                         groupIntensity[0] = risingLittleIntensity;
                     } else {
