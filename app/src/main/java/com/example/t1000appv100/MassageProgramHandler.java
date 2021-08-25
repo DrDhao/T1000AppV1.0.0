@@ -19,11 +19,11 @@ public class MassageProgramHandler{
     public MassageProgramHandler() {
         instance = this;
         main = MainActivity.getInstance();
-        massagePrograms.add(new EverySingleMotorMassage(this, 256));
-        massagePrograms.add(new FullPowerMassage(this, 256));
+        massagePrograms.add(new EverySingleMotorMassage(this, 255));
+        massagePrograms.add(new FullPowerMassage(this, 255));
         massagePrograms.add(new testMassage(this));
-        massagePrograms.add(new WaveMassage(this, 256));
-        massagePrograms.add(new BackCircleMassage(this, 256));
+        massagePrograms.add(new WaveMassage(this, 255));
+        massagePrograms.add(new BackCircleMassage(this, 255));
     }
 
     public static MassageProgramHandler getInstance() {
@@ -31,11 +31,12 @@ public class MassageProgramHandler{
     }
 
     public boolean startMassage(int massageNumber) {
-        if(selectedProgramNum >= 0){return false;}
         if(selectedProgramNum == massageNumber){
             stop();
             return true;
         }
+        if(selectedProgramNum >= 0){return false;}
+
         scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
         selectedProgramNum = (byte) massageNumber;
         Runnable next = () -> main.setMotorData(massagePrograms.get(selectedProgramNum).nextStep());

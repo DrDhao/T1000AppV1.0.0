@@ -169,27 +169,74 @@ class FullPowerMassage extends MassageProgram {
 class EverySingleMotorMassage extends MassageProgram {
 
     private final int[][] valueTable;
-    private final int numberOfColumns = 960;
-    private int columnCounter;
+    private final int frequency = 40; // Jeder Motor eine Sek ansteuern
+    private final int numberOfTimeSteps = frequency * handler.getMotorCount();
+    private int timeStepCounter;
+
 
     public EverySingleMotorMassage(MassageProgramHandler handler, int SizeOfBigIntensity) {
         super(handler);
         int bigIntensity = SizeOfBigIntensity;
-        double littleFactor = 0.25;
-        int littleIncrement = (int) (littleFactor * bigIntensity);
+        double littleFactor = 0.5;
+        int risingLittleIntensity = (int) (littleFactor * bigIntensity);
+        int fallingLittleIntensity = (int) (littleFactor * bigIntensity);
+        boolean nextMotor = false;
+        int[] groupIntensity = new int[handler.getMotorCount()];
+        valueTable = new int[handler.getMotorCount()][numberOfTimeSteps];
 
-        valueTable = new int[handler.getMotorCount()][numberOfColumns];
-        for (int i = 0; i < handler.getMotorCount(); i++) {
-            for (int j = 0; j < 40; j++) {
-                valueTable[i][j] = bigIntensity;
-                if (i > 0 && i < (handler.getMotorCount() - 1)) {
-                    valueTable[i - 1][j] = littleIncrement;
-                    valueTable[i + 1][j] = littleIncrement;
-                } else if (i > 0) {
-                    valueTable[i - 1][j] = littleIncrement;
-                } else if (i < handler.getMotorCount() - 1) {
-                    valueTable[i + 1][j] = littleIncrement;
+        for (int j = 0; j < numberOfTimeSteps; j++) {
+            for (int i = 0; i < handler.getMotorCount(); i++) {
+
+                if (nextMotor && groupIntensity[i] == fallingLittleIntensity) {
+                    if (i == handler.getMotorCount()){
+                        groupIntensity[i] = 0;
+                        groupIntensity[0] = bigIntensity;
+                    } else {
+                        groupIntensity[i] = 0;
+                        groupIntensity[i + 1] = bigIntensity;
+                    }
+                    nextMotor = false;
                 }
+
+                if (nextMotor && groupIntensity[i] == bigIntensity) {
+                    if (i == handler.getMotorCount()){
+                        groupIntensity[i] = fallingLittleIntensity;
+                        groupIntensity[0] = risingLittleIntensity;
+                    } else {
+                        groupIntensity[i] = fallingLittleIntensity;
+                        groupIntensity[i + 1] = risingLittleIntensity;
+                    }
+                    nextMotor = false;
+                }
+            }
+            valueTable[0][j] = groupIntensity[0];
+            valueTable[1][j] = groupIntensity[1];
+            valueTable[2][j] = groupIntensity[2];
+            valueTable[3][j] = groupIntensity[3];
+            valueTable[4][j] = groupIntensity[4];
+            valueTable[5][j] = groupIntensity[5];
+            valueTable[6][j] = groupIntensity[6];
+            valueTable[7][j] = groupIntensity[7];
+            valueTable[8][j] = groupIntensity[8];
+            valueTable[9][j] = groupIntensity[9];
+            valueTable[10][j] = groupIntensity[10];
+            valueTable[11][j] = groupIntensity[11];
+            valueTable[12][j] = groupIntensity[12];
+            valueTable[13][j] = groupIntensity[13];
+            valueTable[14][j] = groupIntensity[14];
+            valueTable[15][j] = groupIntensity[15];
+            valueTable[16][j] = groupIntensity[16];
+            valueTable[17][j] = groupIntensity[17];
+            valueTable[18][j] = groupIntensity[18];
+            valueTable[19][j] = groupIntensity[19];
+            valueTable[20][j] = groupIntensity[20];
+            valueTable[21][j] = groupIntensity[21];
+            valueTable[22][j] = groupIntensity[22];
+            valueTable[23][j] = groupIntensity[23];
+
+
+            if ((j+1)%40==0){
+                nextMotor = true;
             }
         }
     }
@@ -198,10 +245,10 @@ class EverySingleMotorMassage extends MassageProgram {
     public byte[] nextStep() {
         byte[] column = new byte[super.handler.getMotorCount()];
         for (int i = 0; i < super.handler.getMotorCount(); i++) {
-            column[i] = (byte) (valueTable[i][columnCounter] - 128);
+            column[i] = (byte) (valueTable[i][timeStepCounter] - 128);
         }
-        if (columnCounter < numberOfColumns) {
-            columnCounter++;
+        if (timeStepCounter < numberOfTimeSteps) {
+            timeStepCounter++;
         } else {
             resetColumnCounter();
         }
@@ -209,7 +256,7 @@ class EverySingleMotorMassage extends MassageProgram {
     }
 
     public void resetColumnCounter() {
-        columnCounter = 0;
+        timeStepCounter = 0;
     }
 }
 
@@ -249,7 +296,7 @@ class BackCircleMassage extends MassageProgram{
         int[] groupIntensity = new int[numberOfGroups];
         for (int j = 0; j < numberOfColumns; j++) {
             if (j == 0) {
-                groupIntensity[0] = 100;
+                groupIntensity[0] = bigIntensity;
             }
             for (int i = 0; i < numberOfGroups; i++) {
                 if (changeIntensity && groupIntensity[i] == fallingLittleIntensity) {
