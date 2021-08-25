@@ -32,6 +32,10 @@ public class MassageProgramHandler{
 
     public boolean startMassage(int massageNumber) {
         if(selectedProgramNum >= 0){return false;}
+        if(selectedProgramNum == massageNumber){
+            stop();
+            return true;
+        }
         scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
         selectedProgramNum = (byte) massageNumber;
         Runnable next = () -> main.setMotorData(massagePrograms.get(selectedProgramNum).nextStep());
