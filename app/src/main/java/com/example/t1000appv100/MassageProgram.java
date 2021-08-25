@@ -18,21 +18,21 @@ class WaveMassage extends MassageProgram {
 
     public WaveMassage(MassageProgramHandler handler, int SizeOfBigIntensity) {
         super(handler);
-        byte bigIntensity = (byte) (SizeOfBigIntensity);
+        int bigIntensity = SizeOfBigIntensity;
         double littleFactor = 0.5;
         double mediumFactor = 0.75;
-        byte risingLittleIntensity = (byte) (littleFactor * bigIntensity);
-        byte fallingLittleIntensity = (byte) (littleFactor * bigIntensity);
-        byte risingMediumIntensity = (byte) (mediumFactor * bigIntensity);
-        byte fallingMediumIntensity = (byte) (mediumFactor * bigIntensity);
+        int risingLittleIntensity = (int) (littleFactor * bigIntensity);
+        int fallingLittleIntensity = (int) (littleFactor * bigIntensity);
+        int risingMediumIntensity = (int) (mediumFactor * bigIntensity);
+        int fallingMediumIntensity = (int) (mediumFactor * bigIntensity);
         boolean changeIntensity = false;
 
         valueTable = new int[handler.getMotorCount()][numberOfColumns];
         int numberOfGroups = 11;
-        byte[] groupIntensity = new byte[numberOfGroups];
+        int[] groupIntensity = new int[numberOfGroups];
         for (int j = 0; j < numberOfColumns; j++) {
             if (j == 0) {
-                groupIntensity[0] = 100;
+                groupIntensity[0] = bigIntensity;
             }
             for (int i = 0; i < handler.getMotorCount(); i++) {
                 if (changeIntensity && groupIntensity[i] == fallingLittleIntensity) {
@@ -136,7 +136,7 @@ class FullPowerMassage extends MassageProgram {
 
     public FullPowerMassage(MassageProgramHandler handler, int SizeOfBigIntensity) {
         super(handler);
-        byte bigIntensity = (byte) (SizeOfBigIntensity);
+        int bigIntensity = SizeOfBigIntensity;
 
         valueTable = new int[handler.getMotorCount()][numberOfColumns];
         for (int i = 0; i < handler.getMotorCount(); i++) {
@@ -168,17 +168,17 @@ class FullPowerMassage extends MassageProgram {
 
 class EverySingleMotorMassage extends MassageProgram {
 
-    private final byte[][] valueTable;
+    private final int[][] valueTable;
     private final int numberOfColumns = 960;
     private int columnCounter;
 
     public EverySingleMotorMassage(MassageProgramHandler handler, int SizeOfBigIntensity) {
         super(handler);
-        byte bigIntensity = (byte) (SizeOfBigIntensity);
+        int bigIntensity = SizeOfBigIntensity;
         double littleFactor = 0.25;
-        byte littleIncrement = (byte) (littleFactor * bigIntensity);
+        int littleIncrement = (int) (littleFactor * bigIntensity);
 
-        valueTable = new byte[handler.getMotorCount()][numberOfColumns];
+        valueTable = new int[handler.getMotorCount()][numberOfColumns];
         for (int i = 0; i < handler.getMotorCount(); i++) {
             for (int j = 0; j < 40; j++) {
                 valueTable[i][j] = bigIntensity;
@@ -229,24 +229,24 @@ class testMassage extends MassageProgram {
 
 class BackCircleMassage extends MassageProgram{
 
-    private final byte[][] valueTable;
+    private final int[][] valueTable;
     private final int numberOfColumns = 960;
     private int columnCounter;
 
     public BackCircleMassage(MassageProgramHandler handler, int SizeOfBigIntensity) {
         super(handler);
-        byte bigIntensity = (byte) (SizeOfBigIntensity);
+        int bigIntensity = SizeOfBigIntensity;
         double littleFactor = 0.5;
         double mediumFactor = 0.75;
-        byte risingLittleIntensity = (byte) (littleFactor * bigIntensity);
-        byte fallingLittleIntensity = (byte) (littleFactor * bigIntensity);
-        byte risingMediumIntensity = (byte) (mediumFactor * bigIntensity);
-        byte fallingMediumIntensity = (byte) (mediumFactor * bigIntensity);
+        int risingLittleIntensity = (int) (littleFactor * bigIntensity);
+        int fallingLittleIntensity = (int) (littleFactor * bigIntensity);
+        int risingMediumIntensity = (int) (mediumFactor * bigIntensity);
+        int fallingMediumIntensity = (int) (mediumFactor * bigIntensity);
         boolean changeIntensity = false;
 
-        valueTable = new byte[handler.getMotorCount()][numberOfColumns];
+        valueTable = new int[handler.getMotorCount()][numberOfColumns];
         int numberOfGroups = 3;
-        byte[] groupIntensity = new byte[numberOfGroups];
+        int[] groupIntensity = new int[numberOfGroups];
         for (int j = 0; j < numberOfColumns; j++) {
             if (j == 0) {
                 groupIntensity[0] = 100;
