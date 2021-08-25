@@ -10,8 +10,9 @@ import android.view.ViewGroup;
 
 import com.example.t1000appv100.MainActivity;
 import com.example.t1000appv100.R;
+import com.example.t1000appv100.MyFragment;
 
-public class PageFragment3 extends Fragment {
+public class PageFragment3 extends Fragment implements MyFragment {
 
     @Nullable
     @Override
@@ -33,4 +34,8 @@ public class PageFragment3 extends Fragment {
         ((MainActivity) getActivity()).setMotorData(null);
     }
 
+    @Override
+    public void stop() {
+
+    }
 }

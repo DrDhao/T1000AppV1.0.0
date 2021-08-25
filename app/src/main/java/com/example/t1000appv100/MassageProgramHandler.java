@@ -14,7 +14,7 @@ public class MassageProgramHandler{
     private byte selectedProgramNum = -1; //Programs start at num 0
 
     private ArrayList<MassageProgram> massagePrograms = new ArrayList<>();
-    private final ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
+    private ScheduledExecutorService scheduledExecutorService;
 
     public MassageProgramHandler() {
         instance = this;
@@ -22,7 +22,6 @@ public class MassageProgramHandler{
         massagePrograms.add(new EverySingleMotorMassage(this, 256));
         massagePrograms.add(new FullPowerMassage(this, 256));
         massagePrograms.add(new testMassage(this));
-
         massagePrograms.add(new WaveMassage(this, 256));
         massagePrograms.add(new BackCircleMassage(this, 256));
     }
@@ -33,7 +32,7 @@ public class MassageProgramHandler{
 
     public boolean startMassage(int massageNumber) {
         if(selectedProgramNum >= 0){return false;}
-
+        scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
         selectedProgramNum = (byte) massageNumber;
         Runnable next = () -> main.setMotorData(massagePrograms.get(selectedProgramNum).nextStep());
         scheduledExecutorService.scheduleAtFixedRate(next, 0, getTimestepInMs(), TimeUnit.MILLISECONDS);
@@ -41,7 +40,10 @@ public class MassageProgramHandler{
     }
 
     public void stop(){
-        scheduledExecutorService.shutdownNow();
+        if(scheduledExecutorService != null) {
+            scheduledExecutorService.shutdownNow();
+            scheduledExecutorService = null;
+        }
         main.setMotorData(null);
         selectedProgramNum = -1;
         //alles auf null setzen

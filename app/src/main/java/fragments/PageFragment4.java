@@ -12,10 +12,12 @@ import android.view.ViewGroup;
 
 import com.example.t1000appv100.MainActivity;
 import com.example.t1000appv100.R;
+import com.example.t1000appv100.MyFragment;
 
 import java.util.concurrent.Executors;
 
-public class PageFragment4 extends Fragment {
+public class PageFragment4 extends Fragment implements MyFragment {
+    private static PageFragment4 instance;
     private ViewGroup rootView;
     private final int[] seatCoords = new int[2];
     private boolean viewCoordsSet = false;
@@ -31,6 +33,7 @@ public class PageFragment4 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+        instance = this;
 
         rootView = (ViewGroup) inflater
                 .inflate(R.layout.page_4, container
@@ -56,10 +59,7 @@ public class PageFragment4 extends Fragment {
         return rootView;
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        main.setMotorData(null);
+    public void stop(){
         viewCoordsSet = false;
     }
 
@@ -143,5 +143,9 @@ public class PageFragment4 extends Fragment {
     private void setViewCoords(){
         rootView.findViewById(R.id.seatFrg4).getLocationInWindow(seatCoords);
         viewCoordsSet = true;
+    }
+
+    public static PageFragment4 getInstance() {
+        return instance;
     }
 }

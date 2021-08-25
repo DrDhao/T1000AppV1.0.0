@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager pager;
     private PagerAdapter pagerAdapter;
     private NetworkTasker networkTasker;
-    MassageProgramHandler massageProgramHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +48,24 @@ public class MainActivity extends AppCompatActivity {
         pager = findViewById(R.id.pager);
         pagerAdapter = new SlidePagerAdapter(getSupportFragmentManager(), list);
         pager.setAdapter(pagerAdapter);
+        pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) {
+            }
+
+            @Override
+            public void onPageSelected(int i) {
+                SlidePagerAdapter.getInstance().stopOtherFragments(i);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int i) {
+
+            }
+        });
 
         networkTasker = new NetworkTasker();
-        massageProgramHandler = new MassageProgramHandler();
+        new MassageProgramHandler();
     }
 
     private void sendMotordata() {
@@ -102,6 +116,8 @@ public class MainActivity extends AppCompatActivity {
     public static MainActivity getInstance() {
         return instance;
     }
+
+
 
 
 }

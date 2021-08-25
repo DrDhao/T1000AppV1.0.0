@@ -16,8 +16,9 @@ import android.widget.TextView;
 
 import com.example.t1000appv100.MainActivity;
 import com.example.t1000appv100.R;
+import com.example.t1000appv100.MyFragment;
 
-public class PageFragment1 extends Fragment {
+public class PageFragment1 extends Fragment implements MyFragment {
 
     private static final String TAG = "Augabe intensität Fragment1";
     private MainActivity main;
@@ -141,9 +142,8 @@ public class PageFragment1 extends Fragment {
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
-        ((MainActivity) getActivity()).setMotorData(null);
+    public void stop() {
+
     }
 }
 
