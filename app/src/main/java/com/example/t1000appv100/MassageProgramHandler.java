@@ -40,6 +40,7 @@ public class MassageProgramHandler{
 
         scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
         selectedProgramNum = (byte) massageNumber;
+        massagePrograms.get(selectedProgramNum).getReady();
         Runnable next = () -> main.setMotorData(massagePrograms.get(selectedProgramNum).nextStep());
         scheduledExecutorService.scheduleAtFixedRate(next, 0, getTimestepInMs(), TimeUnit.MILLISECONDS);
         return true;

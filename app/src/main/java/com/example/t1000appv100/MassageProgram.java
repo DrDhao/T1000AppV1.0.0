@@ -12,6 +12,7 @@ public abstract class MassageProgram {
     }
 
     public abstract byte[] nextStep();
+    public abstract void getReady();
 }
 
 class WaveMassage extends MassageProgram {
@@ -127,6 +128,11 @@ class WaveMassage extends MassageProgram {
         return column;
     }
 
+    @Override
+    public void getReady() {
+
+    }
+
     public void resetColumnCounter() {
         columnCounter = 0;
     }
@@ -163,6 +169,11 @@ class FullPowerMassage extends MassageProgram {
             resetColumnCounter();
         }
         return column;
+    }
+
+    @Override
+    public void getReady() {
+
     }
 
     public void resetColumnCounter() {
@@ -263,6 +274,11 @@ class EverySingleMotorMassage extends MassageProgram {
         return column;
     }
 
+    @Override
+    public void getReady() {
+
+    }
+
     public void resetColumnCounter() {
         timeStepCounter = 0;
     }
@@ -279,6 +295,11 @@ class testMassage extends MassageProgram {
         byte[] array = new byte[handler.getMotorCount()];
         array[7] = 120;
         return array;
+    }
+
+    @Override
+    public void getReady() {
+
     }
 }
 
@@ -382,6 +403,11 @@ class BackCircleMassage extends MassageProgram{
         return column;
     }
 
+    @Override
+    public void getReady() {
+
+    }
+
     public void resetColumnCounter() {
         columnCounter = 0;
     }
@@ -395,13 +421,6 @@ class BreathInandOutMassage extends MassageProgram{
 
     public BreathInandOutMassage(MassageProgramHandler handler) {
         super(handler);
-        if(PageFragment5.getInstance().isTall()){
-            generateValueTable((short) 8);
-        }else{
-            generateValueTable((short) 7);
-        }
-
-
     }
 
     private void generateValueTable(short motorNum) {
@@ -440,6 +459,9 @@ class BreathInandOutMassage extends MassageProgram{
         for (int i = 0; i < super.handler.getMotorCount(); i++) {
             column[i] = (byte) ((valueTable[i][columnCounter])-128);
         }
+        if(columnCounter == (frequency*breathTime-1)/2){
+            PageFragment5.getInstance().switchBreathText();
+        }
         if (columnCounter < frequency * breathTime) {
             columnCounter++;
         } else {
@@ -447,6 +469,16 @@ class BreathInandOutMassage extends MassageProgram{
         }
         return column;
     }
+
+    @Override
+    public void getReady() {
+        if(PageFragment5.getInstance().isTall()){
+            generateValueTable((short) 8);
+        }else{
+            generateValueTable((short) 7);
+        }
+    }
+
     public void resetColumnCounter() {
         columnCounter = 0;
     }

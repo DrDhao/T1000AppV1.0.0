@@ -33,6 +33,7 @@ public class PageFragment5 extends Fragment implements MyFragment {
     ScheduledExecutorService executorService;
     private int breatheTimeInSeconds = 3;
     private boolean isTall = false;
+    private boolean isTextBreathIn = true;
 
     public boolean isTall() {
         return isTall;
@@ -95,6 +96,7 @@ public class PageFragment5 extends Fragment implements MyFragment {
 
     private void startBreath(boolean isTall){
         this.isTall = isTall;
+        isTextBreathIn = true;
         MassageProgramHandler.getInstance().startMassage(5);
     }
 
@@ -106,7 +108,19 @@ public class PageFragment5 extends Fragment implements MyFragment {
 
     @Override
     public void stop() {
-        executorService.shutdownNow();
-        executorService = null;
+       if(executorService == null) { return;}
+       executorService.shutdownNow();
+       executorService = null;
+    }
+
+    public void switchBreathText(){
+        if(isTextBreathIn){
+            breathText.setText("Ausatmen");
+            isTextBreathIn = false;
+        }else{
+            breathText.setText("Einatmen");
+            isTextBreathIn = true;
+        }
+
     }
 }
