@@ -71,6 +71,7 @@ public class PageFragment3 extends Fragment {
         seekBars[2] = rootView.findViewById(R.id.seekBarTime);
         Button startButton = rootView.findViewById(R.id.startButton);
 
+
         seatButtonRight.setOnClickListener(view -> {
             seatButtonLeft.setVisibility(View.VISIBLE);
             seatButtonLeft.setClickable(true);
@@ -144,14 +145,19 @@ public class PageFragment3 extends Fragment {
         zoneButton[1].setOnClickListener(view -> {
             showTypeButtons(typeButton);
             showTypeButtons.set(true);
+
             zone[activeProgram.get()][1] = zoneButton[1].isChecked();
         });
+
+
 
         zoneButton[2].setOnClickListener(view -> {
             showTypeButtons(typeButton);
             showTypeButtons.set(true);
+
             zone[activeProgram.get()][2] = zoneButton[2].isChecked();
         });
+
 
         zoneButton[3].setOnClickListener(view -> {
             showTypeButtons(typeButton);

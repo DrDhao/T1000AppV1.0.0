@@ -185,6 +185,7 @@
         app:layout_constraintTop_toBottomOf="@+id/seekBarIntensity"
         tools:visibility="visible" />
 
+
     <Button
         android:id="@+id/startButton"
         android:layout_width="318dp"
