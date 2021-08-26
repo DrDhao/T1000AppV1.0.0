@@ -114,6 +114,7 @@ public class PageFragment3 extends Fragment {
 
 
         programButton1.setOnClickListener(view -> {
+
             showZoneButtons(zoneButton);
             showZoneButtons.set(true);
             activeProgram.set(0);
