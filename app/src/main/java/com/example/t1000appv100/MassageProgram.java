@@ -1,5 +1,9 @@
 package com.example.t1000appv100;
 
+import java.util.Arrays;
+
+import fragments.PageFragment5;
+
 public abstract class MassageProgram {
     protected MassageProgramHandler handler;
 
@@ -381,5 +385,71 @@ class BackCircleMassage extends MassageProgram{
     public void resetColumnCounter() {
         columnCounter = 0;
     }
+}
+
+class BreathInandOutMassage extends MassageProgram{
+    int breathTime = 6;
+    int frequency = 40;
+    int[][] valueTable = new int[handler.getMotorCount()][frequency * breathTime];
+    int columnCounter = 0;
+
+    public BreathInandOutMassage(MassageProgramHandler handler) {
+        super(handler);
+        if(PageFragment5.getInstance().isTall()){
+            generateValueTable((short) 8);
+        }else{
+            generateValueTable((short) 7);
+        }
+
+
+    }
+
+    private void generateValueTable(short motorNum) {
+        int intensity = 0;
+        int cap  = (int) (((double) valueTable.length / 2) / 256.0);
+        int c = 0;
+
+        for (int i = 0; i < valueTable.length; i++) {
+            if(i == (valueTable.length-1)/2){
+                c = 0;
+            }
+            if(i < (valueTable.length-1)/2){
+                //breath in
+                if( c < cap){
+                    c++;
+                }else  {
+                    c = 0;
+                    intensity++;
+                }
+            }else{
+                //breath out
+                if( c < cap){
+                    c++;
+                }else  {
+                    c = 0;
+                    intensity--;
+                }
+            }
+            valueTable[motorNum][i] = intensity;
+        }
+    }
+
+    @Override
+    public byte[] nextStep() {
+        byte[] column = new byte[super.handler.getMotorCount()];
+        for (int i = 0; i < super.handler.getMotorCount(); i++) {
+            column[i] = (byte) ((valueTable[i][columnCounter])-128);
+        }
+        if (columnCounter < frequency * breathTime) {
+            columnCounter++;
+        } else {
+            resetColumnCounter();
+        }
+        return column;
+    }
+    public void resetColumnCounter() {
+        columnCounter = 0;
+    }
+
 }
 

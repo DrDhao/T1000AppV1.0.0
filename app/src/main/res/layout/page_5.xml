@@ -8,7 +8,7 @@
     android:gravity="center">
 
     <ImageButton
-        android:id="@+id/seatButtonFrg5"
+        android:id="@+id/seatButtonCenterFrg5"
         android:layout_width="482dp"
         android:layout_height="748dp"
         android:background="#00FFFFFF"
@@ -21,5 +21,75 @@
         app:srcCompat="@drawable/seat"
         tools:srcCompat="@drawable/seat"
         tools:visibility="invisible" />
+
+    <ImageButton
+        android:id="@+id/seatButtonLeftFrg5"
+        android:layout_width="487dp"
+        android:layout_height="758dp"
+        android:background="#00FFFFFF"
+        android:clickable="false"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.18"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/seat"
+        tools:ignore="SpeakableTextPresentCheck"
+        tools:visibility="visible"
+        android:contentDescription="@string/page_2_button" />
+
+    <Button
+        android:id="@+id/buttonTallPerson"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Große Person"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintStart_toEndOf="@+id/seatButtonLeftFrg5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.339"
+        android:clickable="false"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        />
+
+    <Button
+        android:id="@+id/buttonLittlePerson"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Kleine Person"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintStart_toEndOf="@+id/seatButtonLeftFrg5"
+        app:layout_constraintTop_toBottomOf="@+id/buttonTallPerson"
+        app:layout_constraintVertical_bias="0.314"
+        android:clickable="false"
+        android:visibility="invisible"
+        tools:visibility="visible"/>
+
+    <TextView
+        android:id="@+id/atmenTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:text="einatmen"
+        android:textAllCaps="true"
+        android:textColor="@color/light_blue_900"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg5"
+        app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg5"
+        app:layout_constraintHorizontal_bias="0.576"
+        app:layout_constraintStart_toStartOf="@+id/seatButtonLeftFrg5"
+        app:layout_constraintTop_toTopOf="@+id/seatButtonLeftFrg5"
+        app:layout_constraintVertical_bias="0.46"
+        tools:visibility="visible" />
+
 
 </android.support.constraint.ConstraintLayout>

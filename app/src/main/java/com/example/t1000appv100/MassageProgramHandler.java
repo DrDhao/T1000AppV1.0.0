@@ -24,6 +24,7 @@ public class MassageProgramHandler{
         massagePrograms.add(new testMassage(this));
         massagePrograms.add(new WaveMassage(this, 255));
         massagePrograms.add(new BackCircleMassage(this, 255));
+        massagePrograms.add(new BreathInandOutMassage(this));
     }
 
     public static MassageProgramHandler getInstance() {
