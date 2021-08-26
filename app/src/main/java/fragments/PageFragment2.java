@@ -30,11 +30,13 @@ public class PageFragment2 extends Fragment implements MyFragment {
        ImageButton seatButtonLeft = rootView.findViewById(R.id.seatButtonLeftFrg2);
 
        String[] massageProgramList = {
-               "EverySingleMotorMassage",
-               "FullPowerMassage",
-               "testMassage",
-               "WaveMassage",
-               "BackCircleMassage"
+               "Jeder Motor von 1-24",
+               "Vollgaaaaaaaaas",
+               "Einzeltest",
+               "Wellenmassage",
+               "Rücken-Kreismassage",
+               "Zweidrittel-Gas",
+               "Vollgas nur kleine"
        };
 
        List<String> massageList = new ArrayList<>(Arrays.asList(massageProgramList));

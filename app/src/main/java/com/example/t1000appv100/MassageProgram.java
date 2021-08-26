@@ -18,7 +18,8 @@ public abstract class MassageProgram {
 class WaveMassage extends MassageProgram {
 
     private final int[][] valueTable;
-    private final int numberOfColumns = 960;
+    private final int frequency = 40;
+    private final int numberOfColumns = frequency* handler.getMotorCount();
     private int columnCounter;
 
     public WaveMassage(MassageProgramHandler handler, int SizeOfBigIntensity) {
@@ -108,7 +109,7 @@ class WaveMassage extends MassageProgram {
 
             valueTable[1][j] = groupIntensity[10];
             valueTable[0][j] = groupIntensity[10];
-            if ((j+1) % 40 == 0){
+            if ((j+1) % frequency == 0){
                 changeIntensity = true;
             }
         }
@@ -184,7 +185,7 @@ class FullPowerMassage extends MassageProgram {
 class EverySingleMotorMassage extends MassageProgram {
 
     private final int[][] valueTable;
-    private final int frequency = 40; // Jeder Motor eine Sek ansteuern
+    private final int frequency = 20; // Jeder Motor eine Sek ansteuern
     private final int numberOfTimeSteps = 2*frequency * handler.getMotorCount();
     private int timeStepCounter;
 
@@ -254,7 +255,7 @@ class EverySingleMotorMassage extends MassageProgram {
             valueTable[23][j] = groupIntensity[23];
 
 
-            if ((j+1)%40==0){
+            if ((j+1)%frequency==0){
                 nextMotor = true;
             }
         }
@@ -485,3 +486,88 @@ class BreathInandOutMassage extends MassageProgram{
 
 }
 
+class TwoThirdsPowerMassage extends MassageProgram {
+
+    private final int[][] valueTable;
+    private final int numberOfColumns = 960;
+    private int columnCounter;
+
+    public TwoThirdsPowerMassage(MassageProgramHandler handler, int SizeOfBigIntensity) {
+        super(handler);
+        int bigIntensity = (int) (SizeOfBigIntensity*0.66);
+
+        valueTable = new int[handler.getMotorCount()][numberOfColumns];
+        for (int i = 0; i < handler.getMotorCount(); i++) {
+            for (int j = 0; j < numberOfColumns; j++) {
+                valueTable[i][j] = bigIntensity;
+            }
+        }
+        columnCounter = 0;
+    }
+
+    @Override
+    public byte[] nextStep() {
+        byte[] column = new byte[super.handler.getMotorCount()];
+        for (int i = 0; i < super.handler.getMotorCount(); i++) {
+            column[i] = (byte) (valueTable[i][columnCounter]-128);
+        }
+        if (columnCounter < numberOfColumns) {
+            columnCounter++;
+        } else {
+            resetColumnCounter();
+        }
+        return column;
+    }
+
+    @Override
+    public void getReady() {
+
+    }
+
+    public void resetColumnCounter() {
+        columnCounter = 0;
+    }
+}
+
+class FullPowerMassageOnlySmall extends MassageProgram {
+
+    private final int[][] valueTable;
+    private final int numberOfColumns = 960;
+    private int columnCounter;
+
+    public FullPowerMassageOnlySmall(MassageProgramHandler handler, int SizeOfBigIntensity) {
+        super(handler);
+        int bigIntensity = SizeOfBigIntensity;
+
+        valueTable = new int[handler.getMotorCount()][numberOfColumns];
+        for (int i = 8; i < handler.getMotorCount(); i++) {
+            for (int j = 0; j < numberOfColumns; j++) {
+                valueTable[i][j] = bigIntensity;
+            }
+        }
+        columnCounter = 0;
+    }
+
+    @Override
+    public byte[] nextStep() {
+        byte[] column = new byte[super.handler.getMotorCount()];
+        for (int i = 0; i < super.handler.getMotorCount(); i++) {
+            column[i] = (byte) (valueTable[i][columnCounter]-128);
+        }
+        if (columnCounter < numberOfColumns) {
+            columnCounter++;
+        } else {
+            resetColumnCounter();
+        }
+        return column;
+    }
+
+    @Override
+    public void getReady() {
+
+    }
+
+    public void resetColumnCounter() {
+        columnCounter = 0;
+    }
+}

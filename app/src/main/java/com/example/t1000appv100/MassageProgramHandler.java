@@ -20,10 +20,14 @@ public class MassageProgramHandler{
         instance = this;
         main = MainActivity.getInstance();
         massagePrograms.add(new EverySingleMotorMassage(this, 255));
-        massagePrograms.add(new FullPowerMassage(this, 255));
+        massagePrograms.add(new TwoThirdsPowerMassage(this, 255));
         massagePrograms.add(new testMassage(this));
         massagePrograms.add(new WaveMassage(this, 255));
         massagePrograms.add(new BackCircleMassage(this, 255));
+        massagePrograms.add(new TwoThirdsPowerMassage(this, 255));
+        massagePrograms.add(new FullPowerMassageOnlySmall(this, 255));
+
+        //Nicht gelistet in Fragment2
         massagePrograms.add(new BreathInandOutMassage(this));
     }
 
@@ -36,7 +40,9 @@ public class MassageProgramHandler{
             stop();
             return true;
         }
-        if(selectedProgramNum >= 0){return false;}
+        if(selectedProgramNum >= 0){
+            stop();
+        }
 
         scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
         selectedProgramNum = (byte) massageNumber;
