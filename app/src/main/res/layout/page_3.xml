@@ -186,7 +186,7 @@
         tools:visibility="visible" />
 
 
-    <Button
+    <ToggleButton
         android:id="@+id/startButton"
         android:layout_width="318dp"
         android:layout_height="271dp"
