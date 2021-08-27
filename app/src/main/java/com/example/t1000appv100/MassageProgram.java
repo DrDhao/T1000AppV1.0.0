@@ -414,13 +414,13 @@ class BackCircleMassage extends MassageProgram{
     }
 }
 
-class BreathInandOutMassage extends MassageProgram{
+class BreathInAndOutMassage extends MassageProgram{
     int breathTime = 6;
     int frequency = 40;
     int[][] valueTable = new int[handler.getMotorCount()][frequency * breathTime];
     int columnCounter = 0;
 
-    public BreathInandOutMassage(MassageProgramHandler handler) {
+    public BreathInAndOutMassage(MassageProgramHandler handler) {
         super(handler);
     }
 

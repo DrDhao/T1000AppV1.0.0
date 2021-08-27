@@ -25,13 +25,8 @@ public class PageFragment5 extends Fragment implements MyFragment {
     private static PageFragment5 instance;
     private ViewGroup rootView;
     private MainActivity main;
-    ImageButton seatButtonCenter;
-    ImageButton seatButtonLeft;
-    Button tallPersonBtn;
-    Button littlePersonBtn;
+
     TextView breathText;
-    ScheduledExecutorService executorService;
-    private int breatheTimeInSeconds = 3;
     private boolean isTall = false;
     private boolean isTextBreathIn = true;
 
@@ -48,10 +43,10 @@ public class PageFragment5 extends Fragment implements MyFragment {
         instance = this;
         rootView = (ViewGroup) inflater.inflate(R.layout.page_5, container, false);
         main = ((MainActivity) getActivity());
-        seatButtonCenter = rootView.findViewById(R.id.seatButtonCenterFrg5);
-        seatButtonLeft = rootView.findViewById(R.id.seatButtonLeftFrg5);
-        tallPersonBtn = rootView.findViewById(R.id.buttonTallPerson);
-        littlePersonBtn = rootView.findViewById(R.id.buttonLittlePerson);
+        ImageButton seatButtonCenter = rootView.findViewById(R.id.seatButtonCenterFrg5);
+        ImageButton seatButtonLeft = rootView.findViewById(R.id.seatButtonLeftFrg5);
+        Button tallPersonBtn = rootView.findViewById(R.id.buttonTallPerson);
+        Button littlePersonBtn = rootView.findViewById(R.id.buttonLittlePerson);
         breathText = rootView.findViewById(R.id.atmenTextView);
 
         seatButtonCenter.setOnClickListener(view -> {
@@ -106,12 +101,7 @@ public class PageFragment5 extends Fragment implements MyFragment {
         return instance;
     }
 
-    @Override
-    public void stop() {
-       if(executorService == null) { return;}
-       executorService.shutdownNow();
-       executorService = null;
-    }
+
 
     public void switchBreathText(){
         if(isTextBreathIn){
@@ -121,6 +111,11 @@ public class PageFragment5 extends Fragment implements MyFragment {
             breathText.setText("Einatmen");
             isTextBreathIn = true;
         }
+
+    }
+
+    @Override
+    public void stop() {
 
     }
 }

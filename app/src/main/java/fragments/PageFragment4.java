@@ -23,7 +23,7 @@ public class PageFragment4 extends Fragment implements MyFragment {
     private boolean viewCoordsSet = false;
     private final int[][] motorPositionSeat = new int[24][2];
     private MainActivity main;
-    private final double intensityForSwipe = 255;
+    private final double intensityForSwipe = 180;
     private final double intensityDistanceSteepness = 75;
 
 
@@ -76,17 +76,15 @@ public class PageFragment4 extends Fragment implements MyFragment {
 
     private byte[] calculateIntensity(int posX, int posY) {
         byte[] intensity = new byte[main.getMotorCount()];
-        int selectedX;
-        int selectedY;
         for (int i = 0; i < main.getMotorCount(); i++) {
            long eRaw = (long) (Math.pow(posX-motorPositionSeat[i][0],2) + Math.pow(posY - motorPositionSeat[i][1],2));
            double e = Math.sqrt(eRaw); // entfernung in pixel
             e = intensityDistanceSteepness / e;
             if(e>1){
-                e=1;
+                e=1; // Falls zu nah dran, nur bis maximum
             }
             if (e<0.1){
-                e=0;
+                e=0; // falls recht weit weg, auf Null
             }
            intensity[i] = (byte) ((intensityForSwipe * e)-128);
         }

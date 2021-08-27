@@ -14,12 +14,12 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 public class NetworkTasker {
     private final String serverIp = "192.168.4.1:8080";
-    private final MainActivity main;
     private final ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(100);
     private final String postUrl;
+    private RequestQueue requestQueue;
+    private boolean doesRequestQueueExist = false;
 
     public NetworkTasker() {
-        this.main = MainActivity.getInstance();
         postUrl = "http://" + serverIp + "/motorData";
     }
 
@@ -34,13 +34,18 @@ public class NetworkTasker {
                         0,
                         DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
                 ));
+                //if(!doesRequestQueueExist){
+                    requestQueue = Volley.newRequestQueue(MainActivity.getInstance().getApplicationContext());
+                    doesRequestQueueExist = true;
+                //}
 
-                RequestQueue requestQueue = Volley.newRequestQueue(main.getApplicationContext());
                 requestQueue.add(jsonObjectRequest);
 
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+
         });
+
     }
 }

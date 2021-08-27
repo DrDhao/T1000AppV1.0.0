@@ -19,16 +19,16 @@ public class MassageProgramHandler{
     public MassageProgramHandler() {
         instance = this;
         main = MainActivity.getInstance();
-        massagePrograms.add(new EverySingleMotorMassage(this, 255));
-        massagePrograms.add(new TwoThirdsPowerMassage(this, 255));
+        massagePrograms.add(new EverySingleMotorMassage(this, 180));
+        massagePrograms.add(new FullPowerMassage(this, 180));
         massagePrograms.add(new testMassage(this));
-        massagePrograms.add(new WaveMassage(this, 255));
-        massagePrograms.add(new BackCircleMassage(this, 255));
-        massagePrograms.add(new TwoThirdsPowerMassage(this, 255));
-        massagePrograms.add(new FullPowerMassageOnlySmall(this, 255));
+        massagePrograms.add(new WaveMassage(this, 180));
+        massagePrograms.add(new BackCircleMassage(this, 180));
+        massagePrograms.add(new TwoThirdsPowerMassage(this, 180));
+        massagePrograms.add(new FullPowerMassageOnlySmall(this, 180));
 
-        //Nicht gelistet in Fragment2
-        massagePrograms.add(new BreathInandOutMassage(this));
+        //Not listet in fragment 2
+        massagePrograms.add(new BreathInAndOutMassage(this));
     }
 
     public static MassageProgramHandler getInstance() {
