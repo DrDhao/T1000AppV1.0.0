@@ -1,9 +1,11 @@
 package fragments;
 
 import android.os.Bundle;
+import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +23,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class PageFragment3 extends Fragment {
-
 
     @Nullable
     @Override
@@ -113,6 +114,10 @@ public class PageFragment3 extends Fragment {
 
         programButton1.setOnClickListener(view -> {
             customMassageProgram.setActiveProgram(0);
+            programButton1.setText("Phase 1");
+            programButton1.setTextColor(getResources().getColor(R.color.light_blue_900));
+            programButton2.setTextColor(getResources().getColor(R.color.black));
+            programButton3.setTextColor(getResources().getColor(R.color.black));
             showZoneButtons(zoneButton);
             showZoneButtons.set(true);
             for (int i = 0; i <= 9; i++) {
@@ -139,10 +144,18 @@ public class PageFragment3 extends Fragment {
                     typeButton[1].setChecked(false);
                     typeButton[2].setChecked(false);
             }
+            seekBars[0].setProgress(customMassageProgram.getSpeed());
+            seekBars[1].setProgress(customMassageProgram.getIntensity());
+            seekBars[2].setProgress(customMassageProgram.getTime());
         });
 
         programButton2.setOnClickListener(view -> {
             customMassageProgram.setActiveProgram(1);
+            programButton2.setText("Phase 2");
+            programButton1.setTextColor(getResources().getColor(R.color.black));
+            programButton2.setTextColor(getResources().getColor(R.color.light_blue_900));
+            programButton3.setTextColor(getResources().getColor(R.color.black));
+
             for (int i = 0; i <= 9; i++) {
                 zoneButton[i].setChecked(customMassageProgram.getZone(i));
             }
@@ -167,10 +180,18 @@ public class PageFragment3 extends Fragment {
                     typeButton[1].setChecked(false);
                     typeButton[2].setChecked(false);
             }
+            seekBars[0].setProgress(customMassageProgram.getSpeed());
+            seekBars[1].setProgress(customMassageProgram.getIntensity());
+            seekBars[2].setProgress(customMassageProgram.getTime());
         });
 
         programButton3.setOnClickListener(view -> {
             customMassageProgram.setActiveProgram(2);
+            programButton3.setText("Phase 3");
+            programButton1.setTextColor(getResources().getColor(R.color.black));
+            programButton2.setTextColor(getResources().getColor(R.color.black));
+            programButton3.setTextColor(getResources().getColor(R.color.light_blue_900));
+
             for (int i = 0; i <= 9; i++) {
                 zoneButton[i].setChecked(customMassageProgram.getZone(i));
             }
@@ -195,6 +216,9 @@ public class PageFragment3 extends Fragment {
                     typeButton[1].setChecked(false);
                     typeButton[2].setChecked(false);
             }
+            seekBars[0].setProgress(customMassageProgram.getSpeed());
+            seekBars[1].setProgress(customMassageProgram.getIntensity());
+            seekBars[2].setProgress(customMassageProgram.getTime());
         });
 
         zoneButton[0].setOnClickListener(view -> {
@@ -364,6 +388,7 @@ public class PageFragment3 extends Fragment {
         });
 
         startButton.setOnClickListener(view -> {
+            Log.i("OnClickListener", "CLICKED");
             customMassageProgram.startProgram(startButton.isChecked());
         });
 
@@ -394,33 +419,12 @@ public class PageFragment3 extends Fragment {
         startButton.setClickable(true);
     }
 
-    void checkTypeButtons(int type, ToggleButton[] typeButton){
-
-        switch (type){
-            case 0:
-                typeButton[0].setChecked(true);
-                typeButton[1].setChecked(false);
-                typeButton[2].setChecked(false);
-            case 1:
-                typeButton[0].setChecked(false);
-                typeButton[1].setChecked(true);
-                typeButton[2].setChecked(false);
-            case 2:
-                typeButton[0].setChecked(false);
-                typeButton[1].setChecked(false);
-                typeButton[2].setChecked(true);
-        }
-
-
-    }
-
 
     @Override
     public void onPause() {
+        byte [] dataToSend = {-128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128};
         super.onPause();
-        ((MainActivity) getActivity()).setMotorData(null);
+        ((MainActivity) getActivity()).setMotorData(dataToSend);
     }
-
-
 }
 
