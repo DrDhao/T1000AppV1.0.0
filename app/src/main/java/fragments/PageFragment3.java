@@ -69,6 +69,8 @@ public class PageFragment3 extends Fragment implements MyFragment {
         seekBars[1] = rootView.findViewById(R.id.seekBarIntensity);
         seekBars[2] = rootView.findViewById(R.id.seekBarTime);
         ToggleButton startButton = rootView.findViewById(R.id.startButton);
+        boolean[] programButtonsRem = {false, false, false};
+
 
         seatButtonRight.setOnClickListener(view -> {
             seatButtonLeft.setVisibility(View.VISIBLE);
@@ -81,9 +83,28 @@ public class PageFragment3 extends Fragment implements MyFragment {
             if (showZoneButtons.get()) showZoneButtons(zoneButton);
             if (showTypeButtons.get()) showTypeButtons(typeButton);
             if (showSeekBars.get()) showSeekBars(seekBars, textViews, startButton);
+            if(programButtonsRem[0]){
+                programButton1.setVisibility(View.VISIBLE);
+                programButton1.setClickable(true);
+            }
+            if(programButtonsRem[1]){
+                programButton2.setVisibility(View.VISIBLE);
+                programButton2.setClickable(true);
+            }
+            if(programButtonsRem[2]){
+                programButton3.setVisibility(View.VISIBLE);
+                programButton3.setClickable(true);
+            }
         });
 
         seatButtonLeft.setOnClickListener(view -> {
+            programButton1.setVisibility(View.INVISIBLE);
+            programButton2.setVisibility(View.INVISIBLE);
+            programButton3.setVisibility(View.INVISIBLE);
+            programButton1.setClickable(false);
+            programButton2.setClickable(false);
+            programButton3.setClickable(false);
+
             seatButtonRight.setVisibility(View.VISIBLE);
             seatButtonRight.setClickable(true);
             seatButtonLeft.setVisibility(View.INVISIBLE);
@@ -113,6 +134,7 @@ public class PageFragment3 extends Fragment implements MyFragment {
 
         programButton1.setOnClickListener(view -> {
             customMassageProgram.setActiveProgram(0);
+            programButtonsRem[0] = true;
             programButton1.setText("Phase 1");
             programButton1.setTextColor(getResources().getColor(R.color.light_blue_900));
             programButton2.setTextColor(getResources().getColor(R.color.black));
@@ -150,6 +172,7 @@ public class PageFragment3 extends Fragment implements MyFragment {
 
         programButton2.setOnClickListener(view -> {
             customMassageProgram.setActiveProgram(1);
+            programButtonsRem[1] = true;
             programButton2.setText("Phase 2");
             programButton1.setTextColor(getResources().getColor(R.color.black));
             programButton2.setTextColor(getResources().getColor(R.color.light_blue_900));
@@ -186,6 +209,7 @@ public class PageFragment3 extends Fragment implements MyFragment {
 
         programButton3.setOnClickListener(view -> {
             customMassageProgram.setActiveProgram(2);
+            programButtonsRem[2] = true;
             programButton3.setText("Phase 3");
             programButton1.setTextColor(getResources().getColor(R.color.black));
             programButton2.setTextColor(getResources().getColor(R.color.black));

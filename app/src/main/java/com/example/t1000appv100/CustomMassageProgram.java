@@ -101,7 +101,11 @@ public class CustomMassageProgram {
                 toggleRem = true;
                 timeCtr = time_m[programNumber];
                 while (timeCtr > 0) {
-                    if (stopMassage) return;
+                    if (stopMassage) {
+                        byte[] dataToSend = {-128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128};
+                        main.setMotorData(dataToSend);
+                        return;
+                    }
                     timeCtr--;
                     switch (type_m[programNumber]) {
                         case -1:
@@ -116,10 +120,9 @@ public class CustomMassageProgram {
                         case 2:
                             runType3Massage(programNumber, zone_m, intensity_m, speed_m);
                             break;
-
                     }
                     try {
-                        Thread.sleep(50);
+                        Thread.sleep(20);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -142,7 +145,6 @@ public class CustomMassageProgram {
                 dataToSend[20] = -128;
                 dataToSend[18] = -128;
             }
-
             if (zone[programNubmer][1]) {
                 dataToSend[23] = (byte) intensity[programNubmer];
                 dataToSend[21] = (byte) intensity[programNubmer];
@@ -152,7 +154,6 @@ public class CustomMassageProgram {
                 dataToSend[21] = -128;
                 dataToSend[19] = -128;
             }
-
             if (zone[programNubmer][2]) {
                 dataToSend[16] = (byte) intensity[programNubmer];
                 dataToSend[14] = (byte) intensity[programNubmer];
@@ -162,7 +163,6 @@ public class CustomMassageProgram {
                 dataToSend[14] = -128;
                 dataToSend[12] = -128;
             }
-
             if (zone[programNubmer][3]) {
                 dataToSend[17] = (byte) intensity[programNubmer];
                 dataToSend[15] = (byte) intensity[programNubmer];
