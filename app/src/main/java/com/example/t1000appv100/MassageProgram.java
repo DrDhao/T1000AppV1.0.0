@@ -20,9 +20,8 @@ class WaveMassage extends MassageProgram {
     private final int numberOfColumns = frequency* handler.getMotorCount();
     private int columnCounter;
 
-    public WaveMassage(MassageProgramHandler handler, int SizeOfBigIntensity) {
+    public WaveMassage(MassageProgramHandler handler, int bigIntensity) {
         super(handler);
-        int bigIntensity = SizeOfBigIntensity;
         double littleFactor = 0.5;
         double mediumFactor = 0.75;
         int risingLittleIntensity = (int) (littleFactor * bigIntensity);
@@ -143,9 +142,8 @@ class FullPowerMassage extends MassageProgram {
     private final int numberOfColumns = 960;
     private int columnCounter;
 
-    public FullPowerMassage(MassageProgramHandler handler, int SizeOfBigIntensity) {
+    public FullPowerMassage(MassageProgramHandler handler, int bigIntensity) {
         super(handler);
-        int bigIntensity = SizeOfBigIntensity;
 
         valueTable = new int[handler.getMotorCount()][numberOfColumns];
         for (int i = 0; i < handler.getMotorCount(); i++) {
@@ -188,9 +186,8 @@ class EverySingleMotorMassage extends MassageProgram {
     private int timeStepCounter;
 
 
-    public EverySingleMotorMassage(MassageProgramHandler handler, int SizeOfBigIntensity) {
+    public EverySingleMotorMassage(MassageProgramHandler handler, int bigIntensity) {
         super(handler);
-        int bigIntensity = SizeOfBigIntensity;
         double littleFactor = 0.5;
         int risingLittleIntensity = (int) (littleFactor * bigIntensity);
         int fallingLittleIntensity = (int) (littleFactor * bigIntensity);
@@ -308,9 +305,8 @@ class BackCircleMassage extends MassageProgram{
     private final int numberOfColumns = 960;
     private int columnCounter;
 
-    public BackCircleMassage(MassageProgramHandler handler, int SizeOfBigIntensity) {
+    public BackCircleMassage(MassageProgramHandler handler, int bigIntensity) {
         super(handler);
-        int bigIntensity = SizeOfBigIntensity;
         double littleFactor = 0.5;
         double mediumFactor = 0.75;
         int risingLittleIntensity = (int) (littleFactor * bigIntensity);
@@ -533,9 +529,8 @@ class FullPowerMassageOnlySmall extends MassageProgram {
     private final int numberOfColumns = 960;
     private int columnCounter;
 
-    public FullPowerMassageOnlySmall(MassageProgramHandler handler, int SizeOfBigIntensity) {
+    public FullPowerMassageOnlySmall(MassageProgramHandler handler, int bigIntensity) {
         super(handler);
-        int bigIntensity = SizeOfBigIntensity;
 
         valueTable = new int[handler.getMotorCount()][numberOfColumns];
         for (int i = 8; i < handler.getMotorCount(); i++) {
