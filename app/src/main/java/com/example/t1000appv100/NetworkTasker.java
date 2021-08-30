@@ -16,6 +16,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 public class NetworkTasker {
     private final ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(100);
     private final String postUrl;
+    private final Object tag = "ja";
 
 
 
@@ -36,17 +37,18 @@ public class NetworkTasker {
                         0,
                         DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
                 ));
+                jsonObjectRequest.setTag(tag);
                 synchronized (this){
+                    //RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.getInstance().getApplicationContext());
+                    MainActivity.getInstance().sendToVolley(jsonObjectRequest);
 
-                    RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.getInstance().getApplicationContext());
-                    //MainActivity.getInstance().sendToVolley(jsonObjectRequest);
-
-                    requestQueue.add(jsonObjectRequest);
+                    //requestQueue.add(jsonObjectRequest);
                     try {
                         Thread.sleep(1);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
+                    VolleyInternetOperator.getInstance().getRequestQueue().cancelAll(tag);
                 }
 
 
