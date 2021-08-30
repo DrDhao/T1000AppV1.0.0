@@ -17,12 +17,13 @@ import android.widget.ToggleButton;
 
 import com.example.t1000appv100.CustomMassageProgram;
 import com.example.t1000appv100.MainActivity;
+import com.example.t1000appv100.MyFragment;
 import com.example.t1000appv100.R;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class PageFragment3 extends Fragment {
+public class PageFragment3 extends Fragment implements MyFragment {
 
     @Nullable
     @Override
@@ -425,6 +426,11 @@ public class PageFragment3 extends Fragment {
         byte [] dataToSend = {-128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128};
         super.onPause();
         ((MainActivity) getActivity()).setMotorData(dataToSend);
+    }
+
+    @Override
+    public void stop() {
+
     }
 }
 

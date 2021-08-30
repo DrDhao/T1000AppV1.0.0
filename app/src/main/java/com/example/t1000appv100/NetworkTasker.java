@@ -1,5 +1,6 @@
 package com.example.t1000appv100;
 
+import com.android.volley.*;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -13,15 +14,16 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 
 public class NetworkTasker {
-    private final String serverIp = "192.168.4.1:8080";
     private final ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(100);
     private final String postUrl;
-    private RequestQueue requestQueue;
-    private boolean doesRequestQueueExist = false;
+
+
 
     public NetworkTasker() {
+        String serverIp = "192.168.4.1:8080";
         postUrl = "http://" + serverIp + "/motorData";
     }
+
 
     public void sendPostRequest(String message) {
         executor.execute(()->{
@@ -34,12 +36,19 @@ public class NetworkTasker {
                         0,
                         DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
                 ));
-                //if(!doesRequestQueueExist){
-                    requestQueue = Volley.newRequestQueue(MainActivity.getInstance().getApplicationContext());
-                    doesRequestQueueExist = true;
-                //}
+                synchronized (this){
 
-                requestQueue.add(jsonObjectRequest);
+                    RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.getInstance().getApplicationContext());
+                    //MainActivity.getInstance().sendToVolley(jsonObjectRequest);
+
+                    requestQueue.add(jsonObjectRequest);
+                    try {
+                        Thread.sleep(1);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -47,5 +56,8 @@ public class NetworkTasker {
 
         });
 
+
+
     }
+
 }

@@ -9,6 +9,9 @@ import android.util.Log;
 import android.view.WindowManager;
 
 
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -119,6 +122,10 @@ public class MainActivity extends AppCompatActivity {
         return instance;
     }
 
-
+    public void sendToVolley(JsonObjectRequest jsonObjectRequest) {
+        runOnUiThread(()->{
+            VolleyInternetOperator.getInstance(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
+        });
+    }
 }
 
