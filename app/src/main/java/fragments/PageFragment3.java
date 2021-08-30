@@ -38,7 +38,7 @@ public class PageFragment3 extends Fragment implements MyFragment {
         AtomicBoolean showProgram3 = new AtomicBoolean(false);
 
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.page_3, container, false);
-//Deklarartion der UI Objekte
+        //Declaration of UI objects
 
         ImageButton seatButtonRight = rootView.findViewById(R.id.seatButtonRightFrg3);
         ImageButton seatButtonLeft = rootView.findViewById(R.id.seatButtonLeftFrg3);
@@ -113,10 +113,10 @@ public class PageFragment3 extends Fragment implements MyFragment {
 
         programButton1.setOnClickListener(view -> {
             customMassageProgram.setActiveProgram(0);
-            programButton1.setText("Phase 1");
-            programButton1.setTextColor(getResources().getColor(R.color.light_blue_900));
-            programButton2.setTextColor(getResources().getColor(R.color.black));
-            programButton3.setTextColor(getResources().getColor(R.color.black));
+            programButton1.setText(MainActivity.getInstance().getApplicationContext().getString(R.string.phase1));
+            programButton1.setTextColor(MainActivity.getInstance().getApplicationContext().getColor(R.color.light_blue_900));
+            programButton2.setTextColor(MainActivity.getInstance().getApplicationContext().getColor(R.color.black));
+            programButton3.setTextColor(MainActivity.getInstance().getApplicationContext().getColor(R.color.black));
             showZoneButtons(zoneButton);
             showZoneButtons.set(true);
             for (int i = 0; i <= 9; i++) {
@@ -150,10 +150,10 @@ public class PageFragment3 extends Fragment implements MyFragment {
 
         programButton2.setOnClickListener(view -> {
             customMassageProgram.setActiveProgram(1);
-            programButton2.setText("Phase 2");
-            programButton1.setTextColor(getResources().getColor(R.color.black));
-            programButton2.setTextColor(getResources().getColor(R.color.light_blue_900));
-            programButton3.setTextColor(getResources().getColor(R.color.black));
+            programButton2.setText(MainActivity.getInstance().getApplicationContext().getString(R.string.phase2));
+            programButton1.setTextColor(MainActivity.getInstance().getApplicationContext().getColor(R.color.black));
+            programButton2.setTextColor(MainActivity.getInstance().getApplicationContext().getColor(R.color.light_blue_900));
+            programButton3.setTextColor(MainActivity.getInstance().getApplicationContext().getColor(R.color.black));
 
             for (int i = 0; i <= 9; i++) {
                 zoneButton[i].setChecked(customMassageProgram.getZone(i));
@@ -186,10 +186,10 @@ public class PageFragment3 extends Fragment implements MyFragment {
 
         programButton3.setOnClickListener(view -> {
             customMassageProgram.setActiveProgram(2);
-            programButton3.setText("Phase 3");
-            programButton1.setTextColor(getResources().getColor(R.color.black));
-            programButton2.setTextColor(getResources().getColor(R.color.black));
-            programButton3.setTextColor(getResources().getColor(R.color.light_blue_900));
+            programButton3.setText(MainActivity.getInstance().getApplicationContext().getString(R.string.phase3));
+            programButton1.setTextColor(MainActivity.getInstance().getApplicationContext().getColor(R.color.black));
+            programButton2.setTextColor(MainActivity.getInstance().getApplicationContext().getColor(R.color.black));
+            programButton3.setTextColor(MainActivity.getInstance().getApplicationContext().getColor(R.color.light_blue_900));
 
             for (int i = 0; i <= 9; i++) {
                 zoneButton[i].setChecked(customMassageProgram.getZone(i));

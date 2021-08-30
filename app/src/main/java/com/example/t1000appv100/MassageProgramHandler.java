@@ -8,12 +8,11 @@ import java.util.concurrent.TimeUnit;
 public class MassageProgramHandler{
 
     private static MassageProgramHandler instance;
-    private MainActivity main;
-    private final int TIMESTEP_MIN = 100;
+    private final MainActivity main;
     private int timestepInMs = 200;
     private byte selectedProgramNum = -1; //Programs start at num 0
 
-    private ArrayList<MassageProgram> massagePrograms = new ArrayList<>();
+    private final ArrayList<MassageProgram> massagePrograms = new ArrayList<>();
     private ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
 
     public MassageProgramHandler() {
@@ -35,10 +34,10 @@ public class MassageProgramHandler{
         return instance;
     }
 
-    public boolean startMassage(int massageNumber) {
+    public void startMassage(int massageNumber) {
         if(selectedProgramNum == massageNumber){
             stop();
-            return true;
+            return;
         }
         if(selectedProgramNum >= 0){
             stop();
@@ -49,7 +48,6 @@ public class MassageProgramHandler{
         massagePrograms.get(selectedProgramNum).getReady();
         Runnable next = () -> main.setMotorData(massagePrograms.get(selectedProgramNum).nextStep());
         scheduledExecutorService.scheduleAtFixedRate(next, 0, getTimestepInMs(), TimeUnit.MILLISECONDS);
-        return true;
     }
 
     public void stop(){
@@ -69,6 +67,7 @@ public class MassageProgramHandler{
     }
 
     public boolean setTimestepInMs(int timestepInMs) {
+        int TIMESTEP_MIN = 100;
         if(timestepInMs < TIMESTEP_MIN)  {
             return false;
         }else{

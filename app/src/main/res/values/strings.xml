@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Interactive Seating Extended</string>
+    <string name="app_name">Mercedes Seat</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="page_1_button">page 1 button</string>
@@ -15,4 +15,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="einatmen">Einatmen</string>
     <string name="ausatmen">Ausatmen</string>
+    <string name="tallPerson">Große Person</string>
+    <string name="littlePerson">Kleine Person</string>
+
+    <string name="phase1">Phase 1</string>
+    <string name="phase2">Phase 2</string>
+    <string name="phase3">Phase 3</string>
 </resources>
