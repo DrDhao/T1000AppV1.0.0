@@ -1,7 +1,6 @@
 package fragments;
 
 import android.os.Bundle;
-import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -21,7 +20,6 @@ import com.example.t1000appv100.MyFragment;
 import com.example.t1000appv100.R;
 
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class PageFragment3 extends Fragment implements MyFragment {
 
@@ -422,15 +420,8 @@ public class PageFragment3 extends Fragment implements MyFragment {
 
 
     @Override
-    public void onPause() {
-        byte [] dataToSend = {-128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128, -128};
-        super.onPause();
-        ((MainActivity) getActivity()).setMotorData(dataToSend);
-    }
-
-    @Override
     public void stop() {
-
+        MainActivity.getInstance().setMotorData(null);
     }
 }
 

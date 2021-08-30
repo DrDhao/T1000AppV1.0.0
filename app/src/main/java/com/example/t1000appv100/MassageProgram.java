@@ -1,7 +1,5 @@
 package com.example.t1000appv100;
 
-import java.util.Arrays;
-
 import fragments.PageFragment5;
 
 public abstract class MassageProgram {
@@ -185,7 +183,7 @@ class FullPowerMassage extends MassageProgram {
 class EverySingleMotorMassage extends MassageProgram {
 
     private final int[][] valueTable;
-    private final int frequency = 20; // Jeder Motor eine Sek ansteuern
+    private final int frequency = 20;
     private final int numberOfTimeSteps = 2*frequency * handler.getMotorCount();
     private int timeStepCounter;
 

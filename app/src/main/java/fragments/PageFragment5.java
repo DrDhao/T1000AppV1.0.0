@@ -29,6 +29,9 @@ public class PageFragment5 extends Fragment implements MyFragment {
     TextView breathText;
     private boolean isTall = false;
     private boolean isTextBreathIn = true;
+    private boolean isBtnTallPressed = false;
+    private boolean isBtnLittlePressed = false;
+
 
     public boolean isTall() {
         return isTall;
@@ -70,21 +73,41 @@ public class PageFragment5 extends Fragment implements MyFragment {
             littlePersonBtn.setVisibility(View.INVISIBLE);
             littlePersonBtn.setClickable(false);
             littlePersonBtn.setBackgroundColor(Color.parseColor("#FFFFFF"));
+            isBtnLittlePressed = false;
+            isBtnTallPressed = false;
             breathText.setVisibility(View.INVISIBLE);
             stop();
         });
 
         tallPersonBtn.setOnClickListener(view ->{
-            tallPersonBtn.setBackgroundColor(Color.parseColor("#018786"));
-            littlePersonBtn.setBackgroundColor(Color.parseColor("#FFFFFF"));
-            breathText.setVisibility(View.VISIBLE);
-            startBreath(true);
+            if(!isBtnTallPressed){
+                tallPersonBtn.setBackgroundColor(Color.parseColor("#018786"));
+                littlePersonBtn.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                breathText.setVisibility(View.VISIBLE);
+                isBtnTallPressed = true;
+                startBreath(true);
+            } else {
+                tallPersonBtn.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                breathText.setVisibility(View.INVISIBLE);
+                isBtnTallPressed = false;
+                stop();
+            }
+
         });
         littlePersonBtn.setOnClickListener(view ->{
-            littlePersonBtn.setBackgroundColor(Color.parseColor("#018786"));
-            tallPersonBtn.setBackgroundColor(Color.parseColor("#FFFFFF"));
-            breathText.setVisibility(View.VISIBLE);
-            startBreath(false);
+            if (!isBtnLittlePressed){
+                littlePersonBtn.setBackgroundColor(Color.parseColor("#018786"));
+                tallPersonBtn.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                breathText.setVisibility(View.VISIBLE);
+                isBtnLittlePressed = true;
+                startBreath(false);
+            } else {
+                littlePersonBtn.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                breathText.setVisibility(View.INVISIBLE);
+                isBtnLittlePressed = false;
+                stop();
+            }
+
         });
         return rootView;
     }
@@ -92,7 +115,7 @@ public class PageFragment5 extends Fragment implements MyFragment {
     private void startBreath(boolean isTall){
         this.isTall = isTall;
         isTextBreathIn = true;
-        MassageProgramHandler.getInstance().startMassage(5);
+        MassageProgramHandler.getInstance().startMassage(7);
     }
 
 

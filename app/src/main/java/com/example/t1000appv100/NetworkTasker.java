@@ -16,13 +16,15 @@ import java.util.concurrent.ThreadPoolExecutor;
 public class NetworkTasker {
     private final ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(100);
     private final String postUrl;
-    private final Object tag = "ja";
+    //private final Object tag = "ja";
+    //private RequestQueue requestQueue;
 
 
 
     public NetworkTasker() {
         String serverIp = "192.168.4.1:8080";
         postUrl = "http://" + serverIp + "/motorData";
+        //requestQueue = Volley.newRequestQueue(MainActivity.getInstance().getApplicationContext());
     }
 
 
@@ -37,19 +39,20 @@ public class NetworkTasker {
                         0,
                         DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
                 ));
-                jsonObjectRequest.setTag(tag);
-                synchronized (this){
-                    //RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.getInstance().getApplicationContext());
-                    MainActivity.getInstance().sendToVolley(jsonObjectRequest);
+                // jsonObjectRequest.setTag(tag);
+                //synchronized (this){
+                    RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.getInstance().getApplicationContext());
+                  //  MainActivity.getInstance().sendToVolley(jsonObjectRequest);
 
-                    //requestQueue.add(jsonObjectRequest);
-                    try {
+                    requestQueue.add(jsonObjectRequest);
+                    /*try {
                         Thread.sleep(1);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
-                    }
-                    VolleyInternetOperator.getInstance().getRequestQueue().cancelAll(tag);
-                }
+                    }*/
+                    //VolleyInternetOperator.getInstance().getRequestQueue().cancelAll(tag);
+                    //VolleyInternetOperator.getInstance().getRequestQueue().getCache().clear();
+                //}
 
 
             } catch (JSONException e) {

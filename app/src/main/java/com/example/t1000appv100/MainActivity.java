@@ -5,12 +5,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.WindowManager;
 
-
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -123,9 +120,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sendToVolley(JsonObjectRequest jsonObjectRequest) {
-        runOnUiThread(()->{
+        //runOnUiThread(()->{
             VolleyInternetOperator.getInstance(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
-        });
+        //});
     }
 }
 
