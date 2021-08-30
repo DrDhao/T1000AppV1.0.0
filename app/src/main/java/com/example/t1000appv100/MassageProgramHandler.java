@@ -14,7 +14,7 @@ public class MassageProgramHandler{
     private byte selectedProgramNum = -1; //Programs start at num 0
 
     private ArrayList<MassageProgram> massagePrograms = new ArrayList<>();
-    private ScheduledExecutorService scheduledExecutorService;
+    private final ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
 
     public MassageProgramHandler() {
         instance = this;

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
+    android:foregroundTint="@color/teal_200"
     android:gravity="center">
 
     <ImageButton
@@ -39,87 +40,370 @@
         tools:ignore="SpeakableTextPresentCheck"
         tools:visibility="visible" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/motorgrossaus"
-        tools:layout_editor_absoluteX="332dp"
-        tools:layout_editor_absoluteY="211dp" />
-
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <Button
+        android:id="@+id/programButton1"
+        android:layout_width="510dp"
+        android:layout_height="55dp"
+        android:clickable="false"
+        android:text="Hinzufügen"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/seatButtonLeftFrg3"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/motorgrossaus" />
+        app:layout_constraintVertical_bias="0.22000003"
+        tools:visibility="visible" />
 
-    <ImageButton
-        android:id="@+id/imageButton3"
+    <Button
+        android:id="@+id/programButton2"
+        android:layout_width="510dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="8dp"
+        android:clickable="false"
+        android:text="Hinzufügen"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/programButton1"
+        app:layout_constraintStart_toStartOf="@+id/programButton1"
+        app:layout_constraintTop_toBottomOf="@+id/programButton1"
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/programButton3"
+        android:layout_width="510dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="8dp"
+        android:clickable="false"
+        android:text="Hinzufügen"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/programButton2"
+        app:layout_constraintStart_toStartOf="@+id/programButton2"
+        app:layout_constraintTop_toBottomOf="@+id/programButton2"
+        tools:visibility="visible" />
+
+    <ToggleButton
+        android:id="@+id/typeButton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/motorgrossaus"
-        tools:layout_editor_absoluteX="317dp"
-        tools:layout_editor_absoluteY="305dp" />
+        android:layout_marginTop="8dp"
+        android:clickable="false"
+        android:text="Dauer An"
+        android:textOff="Dauer An"
+        android:textOn="Dauer An"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/typeButton2"
+        app:layout_constraintStart_toStartOf="@+id/programButton3"
+        app:layout_constraintTop_toBottomOf="@+id/programButton3"
+        tools:visibility="visible" />
 
-    <ImageButton
-        android:id="@+id/imageButton4"
+    <ToggleButton
+        android:id="@+id/typeButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/motorgrossaus"
-        tools:layout_editor_absoluteX="461dp"
-        tools:layout_editor_absoluteY="321dp" />
+        android:layout_marginTop="8dp"
+        android:clickable="false"
+        android:text="Wechsel"
+        android:textOff="Wechsel"
+        android:textOn="Wechsel"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/programButton3"
+        app:layout_constraintStart_toStartOf="@+id/programButton3"
+        app:layout_constraintTop_toBottomOf="@+id/programButton3"
+        tools:visibility="visible" />
 
-    <ImageButton
-        android:id="@+id/imageButton5"
+    <ToggleButton
+        android:id="@+id/typeButton3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/motorgrossaus"
-        tools:layout_editor_absoluteX="306dp"
-        tools:layout_editor_absoluteY="401dp" />
+        android:layout_marginTop="8dp"
+        android:clickable="false"
+        android:text="Pulsierend"
+        android:textOff="Pulsierend"
+        android:textOn="Pulsierend"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/programButton3"
+        app:layout_constraintStart_toEndOf="@+id/typeButton2"
+        app:layout_constraintTop_toBottomOf="@+id/programButton3"
+        tools:visibility="visible" />
 
-    <ImageButton
-        android:id="@+id/imageButton6"
+
+    <TextView
+        android:id="@+id/textViewSpeed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/motorgrossaus"
-        tools:layout_editor_absoluteX="449dp"
-        tools:layout_editor_absoluteY="417dp" />
+        android:clickable="false"
+        android:text="Speed:"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/seekBarSpeed"
+        app:layout_constraintStart_toStartOf="@+id/programButton3"
+        app:layout_constraintTop_toBottomOf="@+id/typeButton2"
+        tools:visibility="visible" />
 
-    <ImageButton
-        android:id="@+id/imageButton7"
+    <SeekBar
+        android:id="@+id/seekBarSpeed"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:clickable="false"
+        android:max="150"
+        android:min="1"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/programButton3"
+        app:layout_constraintStart_toStartOf="@+id/programButton3"
+        app:layout_constraintTop_toBottomOf="@+id/typeButton2"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/textViewIntensity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/motorgrossaus"
-        tools:layout_editor_absoluteX="294dp"
-        tools:layout_editor_absoluteY="485dp" />
+        android:layout_marginBottom="10dp"
+        android:clickable="false"
+        android:text="Intensity:"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/seekBarIntensity"
+        app:layout_constraintStart_toStartOf="@+id/programButton3"
+        app:layout_constraintTop_toTopOf="@+id/seekBarIntensity"
+        tools:visibility="visible" />
 
-    <ImageButton
-        android:id="@+id/imageButton8"
+    <SeekBar
+        android:id="@+id/seekBarIntensity"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:clickable="false"
+        android:max="127"
+        android:min="-128"
+        android:progress="-128"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/seekBarSpeed"
+        app:layout_constraintStart_toStartOf="@+id/seekBarSpeed"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarSpeed"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/textViewTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/motorgrossaus"
-        tools:layout_editor_absoluteX="442dp"
-        tools:layout_editor_absoluteY="528dp" />
+        android:text="Time:"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/seekBarTime"
+        app:layout_constraintStart_toStartOf="@+id/programButton3"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarIntensity"
+        tools:visibility="visible" />
 
-    <ImageButton
-        android:id="@+id/imageButton9"
+    <SeekBar
+        android:id="@+id/seekBarTime"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:clickable="false"
+        android:max="600"
+        android:min="20"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/seekBarIntensity"
+        app:layout_constraintStart_toStartOf="@+id/seekBarIntensity"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarIntensity"
+        tools:visibility="visible" />
+
+
+    <ToggleButton
+        android:id="@+id/startButton"
+        android:layout_width="195dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="24dp"
+        android:clickable="false"
+        android:text="Button"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/seekBarTime"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="@+id/seekBarTime"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarTime"
+        tools:visibility="visible" />
+
+    <ToggleButton
+        android:id="@+id/zoneButton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/motorgrossaus"
-        tools:layout_editor_absoluteX="218dp"
-        tools:layout_editor_absoluteY="566dp" />
+        android:background="#00FFFFFF"
+        android:button="@drawable/selector"
+        android:clickable="false"
+        android:textOff=""
+        android:textOn=""
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintTop_toTopOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintVertical_bias="0.298"
+        tools:visibility="visible" />
 
-    <ImageButton
-        android:id="@+id/imageButton10"
+    <ToggleButton
+        android:id="@+id/zoneButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/motorgrossaus"
-        tools:layout_editor_absoluteX="380dp"
-        tools:layout_editor_absoluteY="608dp" />
+        android:background="#00FFFFFF"
+        android:button="@drawable/selector"
+        android:clickable="false"
+        android:textOff=""
+        android:textOn=""
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintHorizontal_bias="0.872"
+        app:layout_constraintStart_toStartOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintTop_toTopOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintVertical_bias="0.336"
+        tools:visibility="visible" />
+
+    <ToggleButton
+        android:id="@+id/zoneButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:button="@drawable/selector"
+        android:clickable="false"
+        android:textOff=""
+        android:textOn=""
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintStart_toStartOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintTop_toTopOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintVertical_bias="0.42"
+        tools:visibility="visible" />
+
+    <ToggleButton
+        android:id="@+id/zoneButton4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:button="@drawable/selector"
+        android:clickable="false"
+        android:textOff=""
+        android:textOn=""
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintHorizontal_bias="0.849"
+        app:layout_constraintStart_toStartOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintTop_toTopOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintVertical_bias="0.457"
+        tools:visibility="visible" />
+
+    <ToggleButton
+        android:id="@+id/zoneButton5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:button="@drawable/selector"
+        android:clickable="false"
+        android:textOff=""
+        android:textOn=""
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintStart_toStartOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintTop_toTopOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintVertical_bias="0.552"
+        tools:visibility="visible" />
+
+    <ToggleButton
+        android:id="@+id/zoneButton6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:button="@drawable/selector"
+        android:clickable="false"
+        android:textOff=""
+        android:textOn=""
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintHorizontal_bias="0.817"
+        app:layout_constraintStart_toStartOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintTop_toTopOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintVertical_bias="0.604"
+        tools:visibility="visible" />
+
+    <ToggleButton
+        android:id="@+id/zoneButton7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:button="@drawable/selector"
+        android:clickable="false"
+        android:textOff=""
+        android:textOn=""
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintHorizontal_bias="0.398"
+        app:layout_constraintStart_toStartOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintTop_toTopOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintVertical_bias="0.703"
+        tools:visibility="visible" />
+
+    <ToggleButton
+        android:id="@+id/zoneButton8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:button="@drawable/selector"
+        android:clickable="false"
+        android:textOff=""
+        android:textOn=""
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintHorizontal_bias="0.764"
+        app:layout_constraintStart_toStartOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintTop_toTopOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintVertical_bias="0.74"
+        tools:visibility="visible" />
+
+    <ToggleButton
+        android:id="@+id/zoneButton9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:button="@drawable/selector"
+        android:clickable="false"
+        android:textOff=""
+        android:textOn=""
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintTop_toTopOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintVertical_bias="0.796"
+        tools:visibility="visible" />
+
+    <ToggleButton
+        android:id="@+id/zoneButton10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:button="@drawable/selector"
+        android:clickable="false"
+        android:textOff=""
+        android:textOn=""
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintHorizontal_bias="0.669"
+        app:layout_constraintStart_toStartOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintTop_toTopOf="@+id/seatButtonLeftFrg3"
+        app:layout_constraintVertical_bias="0.844"
+        tools:visibility="visible" />
 
 </android.support.constraint.ConstraintLayout>
