@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 
+import com.example.t1000appv100.MainActivity;
 import com.example.t1000appv100.MassageProgramHandler;
 import com.example.t1000appv100.MyFragment;
 import com.example.t1000appv100.R;
@@ -127,7 +128,7 @@ public class PageFragment5 extends Fragment implements MyFragment {
             breathText.setText("");
             isTextBreathIn = false;
         }else{
-            breathText.setText("Einatmen");
+            breathText.setText(MainActivity.getInstance().getApplicationContext().getString(R.string.ausatmen));
             isTextBreathIn = true;
         }
 
