@@ -21,4 +21,13 @@
     <string name="phase1">Phase 1</string>
     <string name="phase2">Phase 2</string>
     <string name="phase3">Phase 3</string>
+    <string name="add">Hinzufügen</string>
+    <string name="change">Wechsel</string>
+    <string name="dauerAn">Dauer An</string>
+    <string name="pulse">Pulsierend</string>
+    <string name="speed">Speed:</string>
+    <string name="time">Time:</string>
+    <string name="intit">Intensity:</string>
+    <string name="button">Button</string>
+
 </resources>

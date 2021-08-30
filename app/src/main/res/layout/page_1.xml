@@ -69,7 +69,7 @@
         android:layout_height="wrap_content"
         android:text="@string/intensit_t"
         android:textColor="#FFFFFF"
-        android:textSize="60dp"
+        android:textSize="60sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/seekBar"
         app:layout_constraintEnd_toEndOf="@+id/seekBar"
@@ -84,7 +84,7 @@
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:visibility="invisible"
-
+        android:contentDescription="@string/dummy_content"
         app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg1"
         app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg1"
         app:layout_constraintHorizontal_bias="0.19"
@@ -99,6 +99,7 @@
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:visibility="invisible"
+        android:contentDescription="@string/dummy_content"
 
         app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg1"
         app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg1"
@@ -114,6 +115,7 @@
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:visibility="invisible"
+        android:contentDescription="@string/dummy_content"
 
         app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg1"
         app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg1"
@@ -129,6 +131,7 @@
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:visibility="invisible"
+        android:contentDescription="@string/dummy_content"
 
         app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg1"
         app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg1"
@@ -144,6 +147,8 @@
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:visibility="invisible"
+        android:contentDescription="@string/dummy_content"
+
 
         app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg1"
         app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg1"
@@ -159,6 +164,7 @@
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:visibility="invisible"
+        android:contentDescription="@string/dummy_content"
 
         app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg1"
         app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg1"
@@ -174,6 +180,7 @@
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:visibility="invisible"
+        android:contentDescription="@string/dummy_content"
 
         app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg1"
         app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg1"
@@ -189,6 +196,7 @@
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:visibility="invisible"
+        android:contentDescription="@string/dummy_content"
 
         app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg1"
         app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg1"
@@ -204,6 +212,7 @@
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:visibility="invisible"
+        android:contentDescription="@string/dummy_content"
 
         app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg1"
         app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg1"
@@ -218,6 +227,7 @@
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:visibility="invisible"
+        android:contentDescription="@string/dummy_content"
 
         app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg1"
         app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg1"
@@ -233,6 +243,7 @@
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:visibility="invisible"
+        android:contentDescription="@string/dummy_content"
 
         app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg1"
         app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg1"
@@ -247,6 +258,7 @@
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:visibility="invisible"
+        android:contentDescription="@string/dummy_content"
 
         app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg1"
         app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg1"
@@ -262,6 +274,7 @@
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:visibility="invisible"
+        android:contentDescription="@string/dummy_content"
 
         app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg1"
         app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg1"
@@ -276,6 +289,7 @@
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:visibility="invisible"
+        android:contentDescription="@string/dummy_content"
 
         app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg1"
         app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg1"
@@ -291,6 +305,7 @@
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:visibility="invisible"
+        android:contentDescription="@string/dummy_content"
 
         app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg1"
         app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg1"
@@ -305,6 +320,7 @@
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:visibility="invisible"
+        android:contentDescription="@string/dummy_content"
 
         app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg1"
         app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg1"
@@ -319,6 +335,8 @@
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:visibility="invisible"
+        android:contentDescription="@string/dummy_content"
+
 
         app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg1"
         app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg1"
@@ -334,6 +352,7 @@
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:visibility="invisible"
+        android:contentDescription="@string/dummy_content"
 
         app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg1"
         app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg1"
@@ -349,6 +368,7 @@
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:visibility="invisible"
+        android:contentDescription="@string/dummy_content"
 
         app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg1"
         app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg1"
@@ -364,6 +384,7 @@
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:visibility="invisible"
+        android:contentDescription="@string/dummy_content"
 
         app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg1"
         app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg1"
@@ -379,6 +400,7 @@
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:visibility="invisible"
+        android:contentDescription="@string/dummy_content"
 
         app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg1"
         app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg1"
@@ -394,6 +416,7 @@
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:visibility="invisible"
+        android:contentDescription="@string/dummy_content"
 
         app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg1"
         app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg1"
@@ -409,6 +432,7 @@
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:visibility="invisible"
+        android:contentDescription="@string/dummy_content"
 
         app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg1"
         app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg1"
@@ -423,6 +447,7 @@
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:visibility="invisible"
+        android:contentDescription="@string/dummy_content"
 
         app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg1"
         app:layout_constraintEnd_toEndOf="@+id/seatButtonLeftFrg1"

@@ -81,7 +81,7 @@
         android:text="@string/einatmen"
         android:textAllCaps="true"
         android:textColor="@color/light_blue_900"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/seatButtonLeftFrg5"
