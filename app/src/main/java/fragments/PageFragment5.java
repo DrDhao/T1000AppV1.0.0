@@ -12,19 +12,15 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.example.t1000appv100.MainActivity;
+
 import com.example.t1000appv100.MassageProgramHandler;
 import com.example.t1000appv100.MyFragment;
 import com.example.t1000appv100.R;
 
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 public class PageFragment5 extends Fragment implements MyFragment {
     private static PageFragment5 instance;
-    private ViewGroup rootView;
-    private MainActivity main;
+
 
     TextView breathText;
     private boolean isTall = false;
@@ -44,8 +40,8 @@ public class PageFragment5 extends Fragment implements MyFragment {
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         instance = this;
-        rootView = (ViewGroup) inflater.inflate(R.layout.page_5, container, false);
-        main = ((MainActivity) getActivity());
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.page_5, container, false);
+
         ImageButton seatButtonCenter = rootView.findViewById(R.id.seatButtonCenterFrg5);
         ImageButton seatButtonLeft = rootView.findViewById(R.id.seatButtonLeftFrg5);
         Button tallPersonBtn = rootView.findViewById(R.id.buttonTallPerson);
@@ -128,7 +124,7 @@ public class PageFragment5 extends Fragment implements MyFragment {
 
     public void switchBreathText(){
         if(isTextBreathIn){
-            breathText.setText("Ausatmen");
+            breathText.setText("");
             isTextBreathIn = false;
         }else{
             breathText.setText("Einatmen");

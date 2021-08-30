@@ -7,8 +7,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 
-import com.android.volley.toolbox.JsonObjectRequest;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,12 +20,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     private static MainActivity instance;
-    private static final String TAG = "Motor Data Ausgabe";
-    private int motorCount = 24;
+
+    private final int motorCount = 24;
     private byte[] currentMotorData = new byte[motorCount];
 
-    private ViewPager pager;
-    private PagerAdapter pagerAdapter;
     private NetworkTasker networkTasker;
 
     @Override
@@ -47,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
         list.add(new PageFragment4());
         list.add(new PageFragment5());
 
-        pager = findViewById(R.id.pager);
-        pagerAdapter = new SlidePagerAdapter(getSupportFragmentManager(), list);
+        ViewPager pager = findViewById(R.id.pager);
+        PagerAdapter pagerAdapter = new SlidePagerAdapter(getSupportFragmentManager(), list);
         pager.setAdapter(pagerAdapter);
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -70,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         new MassageProgramHandler();
     }
 
-    private void sendMotordata() {
+    private void sendMotorData() {
         networkTasker.sendPostRequest(buildMotorDataOutputString(currentMotorData));
     }
 
@@ -96,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         }else{
             currentMotorData = array;
         }
-        sendMotordata();
+        sendMotorData();
     }
 
     private void resetMotorData() {
@@ -108,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
     public void setMotorValue(byte motorNum, byte intensity) {
         currentMotorData[motorNum] = intensity;
         //Log.i(TAG, "setMotorData: " + motorNum + " = " + intensity);
-        sendMotordata();
+        sendMotorData();
     }
 
     public byte getMotorValue(byte motorNum) {
@@ -119,10 +115,6 @@ public class MainActivity extends AppCompatActivity {
         return instance;
     }
 
-    public void sendToVolley(JsonObjectRequest jsonObjectRequest) {
-        //runOnUiThread(()->{
-            VolleyInternetOperator.getInstance(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
-        //});
-    }
+
 }
 
