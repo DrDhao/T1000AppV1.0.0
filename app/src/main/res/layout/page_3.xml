@@ -7,7 +7,6 @@
     android:background="@drawable/background"
     android:foregroundTint="@color/teal_200"
     android:gravity="center">
-
     <ImageButton
         android:id="@+id/seatButtonRightFrg3"
         android:layout_width="483dp"

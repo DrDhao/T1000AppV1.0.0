@@ -403,7 +403,6 @@ public class PageFragment3 extends Fragment implements MyFragment {
             public void onStartTrackingTouch(SeekBar seekBar) {
 
             }
-
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
 

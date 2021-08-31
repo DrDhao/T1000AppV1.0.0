@@ -312,7 +312,6 @@ public class CustomMassageProgram {
                     } else {
                         dataToSend[1] = -128;
                     }
-
                     dataToSend[6] = -128;
                     dataToSend[7] = -128;
                 } else {
