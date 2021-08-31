@@ -179,7 +179,7 @@ class FullPowerMassage extends MassageProgram {
 class EverySingleMotorMassage extends MassageProgram {
 
     private final int[][] valueTable;
-    private final int frequency = 20;
+    private final int frequency = 40;
     private final int numberOfTimeSteps = 2*frequency * handler.getMotorCount();
     private int timeStepCounter;
 
@@ -300,7 +300,8 @@ class testMassage extends MassageProgram {
 class BackCircleMassage extends MassageProgram{
 
     private final int[][] valueTable;
-    private final int numberOfColumns = 960;
+    private final int frequency = 40;
+    private final int numberOfColumns = handler.getMotorCount()*frequency;
     private int columnCounter;
 
     public BackCircleMassage(MassageProgramHandler handler, int bigIntensity) {
@@ -376,7 +377,7 @@ class BackCircleMassage extends MassageProgram{
             valueTable[23][j] = groupIntensity[2];
             valueTable[22][j] = groupIntensity[2];
 
-            if ((j+1) % 40 == 0){
+            if ((j+1) % frequency == 0){
                 changeIntensity = true;
             }
         }
@@ -405,7 +406,6 @@ class BackCircleMassage extends MassageProgram{
         columnCounter = 0;
     }
 }
-
 
 class TwoThirdsPowerMassage extends MassageProgram {
 

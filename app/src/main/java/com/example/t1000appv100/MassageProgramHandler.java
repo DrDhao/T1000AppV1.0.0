@@ -9,7 +9,7 @@ public class MassageProgramHandler{
 
     private static MassageProgramHandler instance;
     private final MainActivity main;
-    private int timestepInMs = 200;
+    private int timestepInMs = 25;
     private byte selectedProgramNum = -1; //Programs start at num 0
 
     private final ArrayList<MassageProgram> massagePrograms = new ArrayList<>();
@@ -64,16 +64,6 @@ public class MassageProgramHandler{
     //GETTER UND SETTER
     public int getTimestepInMs() {
         return timestepInMs;
-    }
-
-    public boolean setTimestepInMs(int timestepInMs) {
-        int TIMESTEP_MIN = 100;
-        if(timestepInMs < TIMESTEP_MIN)  {
-            return false;
-        }else{
-            this.timestepInMs = timestepInMs;
-            return true;
-        }
     }
 
     protected int getMotorCount(){
