@@ -21,13 +21,13 @@ public class MassageProgramHandler{
         massagePrograms.add(new EverySingleMotorMassage(this, 180));
         massagePrograms.add(new FullPowerMassage(this, 180));
         massagePrograms.add(new testMassage(this));
-        massagePrograms.add(new WaveMassage(this, 180));
-        massagePrograms.add(new BackCircleMassage(this, 180));
         massagePrograms.add(new TwoThirdsPowerMassage(this, 180));
         massagePrograms.add(new FullPowerMassageOnlySmall(this, 180));
 
-        //Not listet in fragment 2
-        massagePrograms.add(new BreathInAndOutMassage(this));
+        massagePrograms.add(new WaveMassage(this, 180));
+        massagePrograms.add(new BackCircleMassage(this, 180));
+
+
     }
 
     public static MassageProgramHandler getInstance() {

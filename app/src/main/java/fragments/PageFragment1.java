@@ -116,14 +116,14 @@ public class PageFragment1 extends Fragment implements MyFragment {
 
                 if (motorNum <= 7) {
                     if (intensity > -128)
-                        motorButtons[motorNum].setImageDrawable(getResources().getDrawable(R.drawable.motorgrossan));
+                        motorButtons[motorNum].setImageDrawable(MainActivity.getInstance().getApplicationContext().getDrawable(R.drawable.motorgrossan));
                     else
-                        motorButtons[motorNum].setImageDrawable(getResources().getDrawable(R.drawable.motorgrossaus));
+                        motorButtons[motorNum].setImageDrawable(MainActivity.getInstance().getApplicationContext().getDrawable(R.drawable.motorgrossaus));
                 } else {
                     if (intensity > -128)
-                        motorButtons[motorNum].setImageDrawable(getResources().getDrawable(R.drawable.motorkleinan));
+                        motorButtons[motorNum].setImageDrawable(MainActivity.getInstance().getApplicationContext().getDrawable(R.drawable.motorkleinan));
                     else
-                        motorButtons[motorNum].setImageDrawable(getResources().getDrawable(R.drawable.motorkleinaus));
+                        motorButtons[motorNum].setImageDrawable(MainActivity.getInstance().getApplicationContext().getDrawable(R.drawable.motorkleinaus));
                 }
             }
 

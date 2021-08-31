@@ -2,7 +2,6 @@ package com.example.t1000appv100;
 
 import android.util.Log;
 
-import javax.security.auth.login.LoginException;
 
 
 public class CustomMassageProgram {

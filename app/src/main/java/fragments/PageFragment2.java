@@ -31,12 +31,13 @@ public class PageFragment2 extends Fragment implements MyFragment {
 
        String[] massageProgramList = {
                "Jeder Motor von 1-24",
-               "Vollgaaaaaaaaas",
+               "Alle auf voll",
                "Einzeltest",
+               "Alle auf zwei Drittel",
+               "Kleine auf voll",
                "Wellenmassage",
-               "Rücken-Kreismassage",
-               "Zweidrittel-Gas",
-               "Vollgas nur kleine"
+               "Rücken-Kreismassage"
+
        };
 
        List<String> massageList = new ArrayList<>(Arrays.asList(massageProgramList));
